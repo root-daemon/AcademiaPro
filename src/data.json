@@ -1,0 +1,399 @@
+{
+  "courses": [
+    {
+      "absent_hours": "4",
+      "category": "Theory",
+      "conducted_hours": "26",
+      "internal_marks": [
+        [
+          ["R21 Summative - T/40.00", "37.00"],
+          ["-1 T1/30.00", "22.00"],
+          ["-2 T1/30.00", "27.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "A",
+      "subject_code": "21PDM101L",
+      "subject_faculty": "Dr. Nizamudeen  (102293)",
+      "subject_name": "Professional Skills and Practices"
+    },
+    {
+      "absent_hours": "7",
+      "category": "Theory",
+      "conducted_hours": "56",
+      "internal_marks": [
+        [
+          ["-1 T1/10.00", "9.20"],
+          ["-1 T2/20.00", "10.00"],
+          ["-1 T3/20.00", "14.80"],
+          ["-2 T1/5.00", "5.00"],
+          ["-2 T2/5.00", "5.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "B",
+      "subject_code": "21MAB101T",
+      "subject_faculty": "Dr. Karthik Chinnasamy (103246)",
+      "subject_name": "Calculus and Linear Algebra"
+    },
+    {
+      "absent_hours": "1",
+      "category": "Theory",
+      "conducted_hours": "15",
+      "internal_marks": [
+        [
+          ["-1 T1/15.00", "12.80"],
+          ["-1 T2/15.00", "10.50"],
+          ["-1 T3/15.00", "10.50"],
+          ["-2 T1/7.50", "7.00"],
+          ["-2 T2/7.50", "6.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "C",
+      "subject_code": "21GNH101J",
+      "subject_faculty": "Dr. Abijah Roseline S (103071)",
+      "subject_name": "Philosophy of Engineering"
+    },
+    {
+      "absent_hours": "4",
+      "category": "Theory",
+      "conducted_hours": "30",
+      "internal_marks": [
+        [
+          ["-1 T1/10.00", "6.00"],
+          ["-1 T2/20.00", "14.00"],
+          ["-1 T3/20.00", "11.20"],
+          ["-2 T1/5.00", "4.00"],
+          ["-2 T2/5.00", "5.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "C",
+      "subject_code": "21BTB102T",
+      "subject_faculty": "Shubhi Singh (310763)",
+      "subject_name": "Introduction to Computational Biology"
+    },
+    {
+      "absent_hours": "11",
+      "category": "Theory",
+      "conducted_hours": "59",
+      "internal_marks": [
+        [
+          ["-1 T4/5.00", "5.00"],
+          ["-2 T3/3.50", "3.50"],
+          ["-2 T1/8.00", "7.50"],
+          ["-2 T2/3.50", "3.50"],
+          ["-1 T1/10.00", "5.60"],
+          ["-1 T2/15.00", "10.00"],
+          ["-1 T3/15.00", "10.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "D",
+      "subject_code": "21CYB101J",
+      "subject_faculty": "Dr.S.Ganesan (101283)",
+      "subject_name": "Chemistry"
+    },
+    {
+      "absent_hours": "4",
+      "category": "Theory",
+      "conducted_hours": "43",
+      "internal_marks": [
+        [
+          ["-2 T2/5.00", "5.00"],
+          ["-2 T1/5.00", "5.00"],
+          ["-1 T3/5.00", "5.00"],
+          ["-2 T3/5.00", "5.00"],
+          ["-1 T1/15.00", "14.20"],
+          ["-1 T2/25.00", "19.60"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "F",
+      "subject_code": "21CSS101J",
+      "subject_faculty": "Dr.M.Arun Noyal Doss (100652)",
+      "subject_name": "Programming for Problem Solving"
+    },
+    {
+      "absent_hours": "6",
+      "category": "Theory",
+      "conducted_hours": "42",
+      "internal_marks": [
+        [
+          ["-1 T1/10.00", "8.50"],
+          ["-1 T2/20.00", "13.00"],
+          ["-1 T3/20.00", "14.60"],
+          ["-2 T1/10.00", "10.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "G",
+      "subject_code": "21LEH103T",
+      "subject_faculty": "Ms.K.Sankari (100338)",
+      "subject_name": "French"
+    },
+    {
+      "absent_hours": "4",
+      "category": "Practical",
+      "conducted_hours": "24",
+      "internal_marks": [
+        [
+          ["-1 P1/30.00", "28.00"],
+          ["-2 P1/30.00", "25.00"],
+          ["R21 Summative - P/40.00", "33.00"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "LAB",
+      "subject_code": "21GNM101L",
+      "subject_faculty": "Dr.M.Shanmugapriya (102886)",
+      "subject_name": "Physical and Mental Health using Yoga"
+    },
+    {
+      "absent_hours": "6",
+      "category": "Practical",
+      "conducted_hours": "30",
+      "internal_marks": [[]],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "LAB",
+      "subject_code": "21CYB101J",
+      "subject_faculty": "Dr.S.Ganesan (101283)",
+      "subject_name": "Chemistry"
+    },
+    {
+      "absent_hours": "6",
+      "category": "Practical",
+      "conducted_hours": "30",
+      "internal_marks": [[]],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "LAB",
+      "subject_code": "21CSS101J",
+      "subject_faculty": "Dr. Anousouya Devi M (103061)",
+      "subject_name": "Programming for Problem Solving"
+    },
+    {
+      "absent_hours": "1",
+      "category": "Practical",
+      "conducted_hours": "60",
+      "internal_marks": [
+        [
+          ["-1 P1/5.00", "4.38"],
+          ["-1 P2/5.00", "4.88"],
+          ["-1 P3/5.00", "4.50"],
+          ["-1 P4/5.00", "3.63"],
+          ["-1 P5/5.00", "5.00"],
+          ["-1 P6/5.00", "4.63"],
+          ["-2 P1/5.00", "4.50"],
+          ["-2 P2/5.00", "4.38"],
+          ["-2 P3/5.00", "4.38"],
+          ["-2 P4/5.00", "4.00"],
+          ["-2 P5/5.00", "4.00"],
+          ["-2 P6/5.00", "3.50"]
+        ]
+      ],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "LAB",
+      "subject_code": "21MES101L",
+      "subject_faculty": "Dr. D. Siva Krishna Reddy  (102202)",
+      "subject_name": "Basic Civil and Mechanical Workshop"
+    },
+    {
+      "absent_hours": "2",
+      "category": "Practical",
+      "conducted_hours": "28",
+      "internal_marks": [[]],
+      "practical_date": 0,
+      "practical_time": 0,
+      "slot": "LAB",
+      "subject_code": "21GNH101J",
+      "subject_faculty": "Dr. Abijah Roseline S (103071)",
+      "subject_name": "Philosophy of Engineering"
+    }
+  ],
+  "internal_marks": [
+    {
+      "category": "Theory",
+      "marks": [
+        ["-1 T1/10.00", "9.20"],
+        ["-1 T2/20.00", "10.00"],
+        ["-1 T3/20.00", "14.80"],
+        ["-2 T1/5.00", "5.00"],
+        ["-2 T2/5.00", "5.00"]
+      ],
+      "subject_code": "21MAB101T"
+    },
+    {
+      "category": "Theory",
+      "marks": [
+        ["-1 T4/5.00", "5.00"],
+        ["-2 T3/3.50", "3.50"],
+        ["-2 T1/8.00", "7.50"],
+        ["-2 T2/3.50", "3.50"],
+        ["-1 T1/10.00", "5.60"],
+        ["-1 T2/15.00", "10.00"],
+        ["-1 T3/15.00", "10.00"]
+      ],
+      "subject_code": "21CYB101J"
+    },
+    {
+      "category": "Practical",
+      "marks": [],
+      "subject_code": "21CYB101J"
+    },
+    {
+      "category": "Theory",
+      "marks": [
+        ["-2 T2/5.00", "5.00"],
+        ["-2 T1/5.00", "5.00"],
+        ["-1 T3/5.00", "5.00"],
+        ["-2 T3/5.00", "5.00"],
+        ["-1 T1/15.00", "14.20"],
+        ["-1 T2/25.00", "19.60"]
+      ],
+      "subject_code": "21CSS101J"
+    },
+    {
+      "category": "Practical",
+      "marks": [],
+      "subject_code": "21CSS101J"
+    },
+    {
+      "category": "Practical",
+      "marks": [
+        ["-1 P1/5.00", "4.38"],
+        ["-1 P2/5.00", "4.88"],
+        ["-1 P3/5.00", "4.50"],
+        ["-1 P4/5.00", "3.63"],
+        ["-1 P5/5.00", "5.00"],
+        ["-1 P6/5.00", "4.63"],
+        ["-2 P1/5.00", "4.50"],
+        ["-2 P2/5.00", "4.38"],
+        ["-2 P3/5.00", "4.38"],
+        ["-2 P4/5.00", "4.00"],
+        ["-2 P5/5.00", "4.00"],
+        ["-2 P6/5.00", "3.50"]
+      ],
+      "subject_code": "21MES101L"
+    },
+    {
+      "category": "Theory",
+      "marks": [
+        ["-1 T1/15.00", "12.80"],
+        ["-1 T2/15.00", "10.50"],
+        ["-1 T3/15.00", "10.50"],
+        ["-2 T1/7.50", "7.00"],
+        ["-2 T2/7.50", "6.00"]
+      ],
+      "subject_code": "21GNH101J"
+    },
+    {
+      "category": "Practical",
+      "marks": [],
+      "subject_code": "21GNH101J"
+    },
+    {
+      "category": "Theory",
+      "marks": [
+        ["-1 T1/10.00", "6.00"],
+        ["-1 T2/20.00", "14.00"],
+        ["-1 T3/20.00", "11.20"],
+        ["-2 T1/5.00", "4.00"],
+        ["-2 T2/5.00", "5.00"]
+      ],
+      "subject_code": "21BTB102T"
+    },
+    {
+      "category": "Theory",
+      "marks": [
+        ["R21 Summative - T/40.00", "37.00"],
+        ["-1 T1/30.00", "22.00"],
+        ["-2 T1/30.00", "27.00"]
+      ],
+      "subject_code": "21PDM101L"
+    },
+    {
+      "category": "Theory",
+      "marks": [
+        ["-1 T1/10.00", "8.50"],
+        ["-1 T2/20.00", "13.00"],
+        ["-1 T3/20.00", "14.60"],
+        ["-2 T1/10.00", "10.00"]
+      ],
+      "subject_code": "21LEH103T"
+    },
+    {
+      "category": "Practical",
+      "marks": [
+        ["-1 P1/30.00", "28.00"],
+        ["-2 P1/30.00", "25.00"],
+        ["R21 Summative - P/40.00", "33.00"]
+      ],
+      "subject_code": "21GNM101L"
+    }
+  ],
+  "time-table": [
+    {
+      "08:00 - 09:40": ["Object Oriented Design and Programming (Theory) 1007"],
+      "11:35 - 12:25": ["General Aptitude (Theory) 1007"],
+      "day_order": 1
+    },
+    {
+      "12:30 - 14:15": ["Advanced Calculus and Complex Analysis (Theory) 1007"],
+      "14:20 - 16:00": ["General Aptitude (Theory) 1007"],
+      "16:00 - 16:50": ["Object Oriented Design and Programming (Theory) 1007"],
+      "day_order": 2
+    },
+    {
+      "08:00 - 09:40": ["Electrical and Electronics Engineering (Theory) 1007"],
+      "09:45 - 10:35": ["Object Oriented Design and Programming (Theory) 1007"],
+      "10:40 - 11:30": [
+        "Semiconductor Physics and Computational Methods (Theory) 1007"
+      ],
+      "11:35 - 12:25": ["Advanced Calculus and Complex Analysis (Theory) 1007"],
+      "day_order": 3
+    },
+    {
+      "09:45 - 11:30": [
+        "Semiconductor Physics and Computational Methods (Lab) "
+      ],
+      "12:30 - 14:15": [
+        "Semiconductor Physics and Computational Methods (Theory) 1007"
+      ],
+      "14:20 - 15:10": ["Advanced Calculus and Complex Analysis (Theory) 1007"],
+      "15:10 - 16:00": ["Communicative English (Theory) 1007"],
+      "16:00 - 16:50": ["Electrical and Electronics Engineering (Theory) 1007"],
+      "day_order": 4
+    },
+    {
+      "08:00 - 09:40": ["Communicative English (Theory) 1007"],
+      "09:45 - 10:35": ["Electrical and Electronics Engineering (Theory) 1007"],
+      "11:35 - 12:25": [
+        "Semiconductor Physics and Computational Methods (Theory) 1007"
+      ],
+      "day_order": 5
+    }
+  ],
+  "user": {
+    "batch": "1",
+    "department": "Computer Science and Engineering",
+    "name": "SRIVISHAL S",
+    "number": "9344383408",
+    "program": "B.Tech",
+    "regNo": "RA2311026010227",
+    "section": "AF1",
+    "sem": "2",
+    "spec": "AIML"
+  }
+}

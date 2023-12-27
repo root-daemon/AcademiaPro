@@ -1,0 +1,12 @@
+.nav {
+  background-color: var(--navbar) !important;
+}
+.l-navbar {
+  background-color: var(--navbar) !important;
+  padding-right: 0 !important;
+}
+
+.nav_list {
+  background-color: var(--navbar-sidebar) !important;
+  width: auto;
+}
