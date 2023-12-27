@@ -1,6 +1,237 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+/*
+const response = await fetch(
+  "https://academai-s-3.azurewebsites.net//course-user",
+  {
+    method: "POST",
+    headers: {
+      "x-access-token":
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbkEiOiJiNzdmMTIwOGNiYzE3MmMwNDg2MGQwZTJlZDI1M2NhYmI0NGUzOTgwNzdkYzg4OTVkMWMyN2JlN2VmOTMzNzJkNGE2MGFjZGQ0MzRlNDNlMGQwYTE5NDJlNGFlODJlNTU4NjAxMWFiNjU4MjBmMTRmNTI0MTQyMzNkNDE2OTRiMyIsInRva2VuQiI6IjRhNTJkNWI2YTkwMmI3YWMyZWQ2MmM4OWMwMDhkOTI3NzYwZDNiZTJiNWEyMTY2NDY2NThiYzA1ODE5OWUyMzU5OWQzOGVhNDk1NDY0YTY5YmE2ZDFiOTNlODhjNWQ2ODFhY2Q5Y2EzYTZkMTUxN2Y1OTgzMDM3NGQ3ZGM0NmZiIiwidXNlcm5hbWUiOiJzczc5MjEifQ.XEk8FEnzw4KpPWFTHrI-v9-BKIPREgnEdKOgMopWdBA",
+      Host: "academai-s-3.azurewebsites.net",
+      Origin: "https://a.srmcheck.me",
+      Referer: "https://a.srmcheck.me/",
+    },
+  }
+);
+*/
+const data = {
+  courses: [
+    {
+      absent_hours: "4",
+      category: "Theory",
+      conducted_hours: "26",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "A",
+      subject_code: "21PDM101L",
+      subject_faculty: "Dr. Nizamudeen  (102293)",
+      subject_name: "Professional Skills and Practices",
+    },
+    {
+      absent_hours: "7",
+      category: "Theory",
+      conducted_hours: "56",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "B",
+      subject_code: "21MAB101T",
+      subject_faculty: "Dr. Karthik Chinnasamy (103246)",
+      subject_name: "Calculus and Linear Algebra",
+    },
+    {
+      absent_hours: "1",
+      category: "Theory",
+      conducted_hours: "15",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "C",
+      subject_code: "21GNH101J",
+      subject_faculty: "Dr. Abijah Roseline S (103071)",
+      subject_name: "Philosophy of Engineering",
+    },
+    {
+      absent_hours: "4",
+      category: "Theory",
+      conducted_hours: "30",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "C",
+      subject_code: "21BTB102T",
+      subject_faculty: "Shubhi Singh (310763)",
+      subject_name: "Introduction to Computational Biology",
+    },
+    {
+      absent_hours: "11",
+      category: "Theory",
+      conducted_hours: "59",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "D",
+      subject_code: "21CYB101J",
+      subject_faculty: "Dr.S.Ganesan (101283)",
+      subject_name: "Chemistry",
+    },
+    {
+      absent_hours: "4",
+      category: "Theory",
+      conducted_hours: "43",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "F",
+      subject_code: "21CSS101J",
+      subject_faculty: "Dr.M.Arun Noyal Doss (100652)",
+      subject_name: "Programming for Problem Solving",
+    },
+    {
+      absent_hours: "6",
+      category: "Theory",
+      conducted_hours: "42",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "G",
+      subject_code: "21LEH103T",
+      subject_faculty: "Ms.K.Sankari (100338)",
+      subject_name: "French",
+    },
+    {
+      absent_hours: "4",
+      category: "Practical",
+      conducted_hours: "24",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "LAB",
+      subject_code: "21GNM101L",
+      subject_faculty: "Dr.M.Shanmugapriya (102886)",
+      subject_name: "Physical and Mental Health using Yoga",
+    },
+    {
+      absent_hours: "6",
+      category: "Practical",
+      conducted_hours: "30",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "LAB",
+      subject_code: "21CYB101J",
+      subject_faculty: "Dr.S.Ganesan (101283)",
+      subject_name: "Chemistry",
+    },
+    {
+      absent_hours: "6",
+      category: "Practical",
+      conducted_hours: "30",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "LAB",
+      subject_code: "21CSS101J",
+      subject_faculty: "Dr. Anousouya Devi M (103061)",
+      subject_name: "Programming for Problem Solving",
+    },
+    {
+      absent_hours: "1",
+      category: "Practical",
+      conducted_hours: "60",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "LAB",
+      subject_code: "21MES101L",
+      subject_faculty: "Dr. D. Siva Krishna Reddy  (102202)",
+      subject_name: "Basic Civil and Mechanical Workshop",
+    },
+    {
+      absent_hours: "2",
+      category: "Practical",
+      conducted_hours: "28",
+      internal_marks: [Array],
+      practical_date: 0,
+      practical_time: 0,
+      slot: "LAB",
+      subject_code: "21GNH101J",
+      subject_faculty: "Dr. Abijah Roseline S (103071)",
+      subject_name: "Philosophy of Engineering",
+    },
+  ],
+  internal_marks: [
+    { category: "Theory", marks: [Array], subject_code: "21MAB101T" },
+    { category: "Theory", marks: [Array], subject_code: "21CYB101J" },
+    { category: "Practical", marks: [], subject_code: "21CYB101J" },
+    { category: "Theory", marks: [Array], subject_code: "21CSS101J" },
+    { category: "Practical", marks: [], subject_code: "21CSS101J" },
+    {
+      category: "Practical",
+      marks: [Array],
+      subject_code: "21MES101L",
+    },
+    { category: "Theory", marks: [Array], subject_code: "21GNH101J" },
+    { category: "Practical", marks: [], subject_code: "21GNH101J" },
+    { category: "Theory", marks: [Array], subject_code: "21BTB102T" },
+    { category: "Theory", marks: [Array], subject_code: "21PDM101L" },
+    { category: "Theory", marks: [Array], subject_code: "21LEH103T" },
+    {
+      category: "Practical",
+      marks: [Array],
+      subject_code: "21GNM101L",
+    },
+  ],
+  "time-table": [
+    {
+      "08:00 - 09:40": [Array],
+      "11:35 - 12:25": [Array],
+      day_order: 1,
+    },
+    {
+      "12:30 - 14:15": [Array],
+      "14:20 - 16:00": [Array],
+      "16:00 - 16:50": [Array],
+      day_order: 2,
+    },
+    {
+      "08:00 - 09:40": [Array],
+      "09:45 - 10:35": [Array],
+      "10:40 - 11:30": [Array],
+      "11:35 - 12:25": [Array],
+      day_order: 3,
+    },
+    {
+      "09:45 - 11:30": [Array],
+      "12:30 - 14:15": [Array],
+      "14:20 - 15:10": [Array],
+      "15:10 - 16:00": [Array],
+      "16:00 - 16:50": [Array],
+      day_order: 4,
+    },
+    {
+      "08:00 - 09:40": [Array],
+      "09:45 - 10:35": [Array],
+      "11:35 - 12:25": [Array],
+      day_order: 5,
+    },
+  ],
+  user: {
+    batch: "1",
+    department: "Computer Science and Engineering",
+    name: "SRIVISHAL S",
+    number: "9344383408",
+    program: "B.Tech",
+    regNo: "RA2311026010227",
+    section: "AF1",
+    sem: "2",
+    spec: "AIML",
+  },
+};
 ---
 
 <Layout title="Welcome to Astro.">
@@ -44,17 +275,41 @@ import Card from '../components/Card.astro';
       </a>
     </nav>
   </div>
+
+  <div class="card-grid">
+    {
+      data.courses.map((element, index) => (
+        <Card
+          title={element.subject_name}
+          code={element.subject_code}
+          data={{
+            present:
+              Number(element.conducted_hours) - Number(element.absent_hours),
+            absent: Number(element.absent_hours),
+            total: Number(element.conducted_hours),
+          }}
+          percent={(
+            ((Number(element.conducted_hours) - Number(element.absent_hours)) /
+              Number(element.conducted_hours)) *
+            100
+          )
+            .toFixed(2)
+            .toString()}
+        />
+      ))
+    }
+  </div>
 </Layout>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
   :root {
     --header-height: 3rem;
     --nav-width: 68px;
     --first-color: #4723d9;
     --first-color-light: #afa5d9;
     --white-color: #f7f6fb;
-    --body-font: 'Nunito', sans-serif;
+    --body-font: "Nunito", sans-serif;
     --normal-font-size: 1rem;
     --z-fixed: 100;
   }
@@ -87,6 +342,17 @@ import Card from '../components/Card.astro';
     background-color: var(--white-color);
     z-index: var(--z-fixed);
     transition: 0.5s;
+  }
+  .card-grid {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 12px;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-rows: -webkit-min-content;
+    -ms-grid-rows: -webkit-min-content;
+    -ms-grid-rows: min-content;
+    grid-template-rows: min-content;
   }
   .header_toggle {
     color: var(--first-color);
@@ -163,7 +429,7 @@ import Card from '../components/Card.astro';
     color: var(--white-color);
   }
   .active::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     width: 2px;
