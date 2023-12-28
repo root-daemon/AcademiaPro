@@ -68,12 +68,16 @@ console.log(data);
     --navbar: #2f2f2f;
     --navbar-sidebar: #1f1f1f;
   }
-  h1, h2, h3, h4, p {
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
     margin-bottom: 0px;
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: var(--background) !important;
     background-size: 224px;
   }
   code {
@@ -86,5 +90,8 @@ console.log(data);
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
+  }
+  body {
+    background-color: var(--background) !important;
   }
 </style>
