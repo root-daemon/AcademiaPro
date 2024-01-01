@@ -1,14 +1,73 @@
 ---
+import { Debug } from 'astro:components';
 interface Props {
   timetable: object;
 }
-const { timetable } = Astro.props;
-const timtable_arr =timetable instanceof Array;
+var time_table_arr = [null, null, null, null, null, null, null, null];
+const { timetable }: { timetable: Record<string, any> } = Astro.props;
+
+var used_times: string[] = [];
+var starting_times: string[] = [];
+var end_times: string[] = [];
+const starting_times_slot = [
+  '08:00',
+  '08:50',
+  '09:45',
+  '10:40',
+  '11:35',
+  '12:30',
+  '13:25',
+  '14:20',
+  '15:10',
+  '16:00',
+];
+const ending_times_slot = [
+  '08:50',
+  '09:40',
+  '10:35',
+  '11:30',
+  '12:25',
+  '13:20',
+  '14:15',
+  '15:10',
+  '16:00',
+  '16:50',
+];
+var time_arr = timetable;
+Object.keys(timetable).forEach((key) => used_times.push(key));
+used_times.pop();
+for (var i = 0; i < used_times.length; i++) {
+  starting_times.push(used_times[i].slice(0, 4 + 1));
+  end_times.push(used_times[i].slice(used_times.length - 7));
+}
+starting_times.map(function (time, index) {
+  if (
+    ending_times_slot[starting_times_slot.indexOf(time)] == end_times[index]
+  ) {
+    time_table_arr[starting_times_slot.indexOf(time)] =
+      timetable[used_times[index]];
+  } else {
+    var app = 0;
+    var flag = false;
+    while (!flag) {
+      if (
+        ending_times_slot[starting_times_slot.indexOf(time) + app] ==
+        end_times[index]
+      ) {
+        flag = true;
+        time_table_arr[starting_times_slot.indexOf(time) + app] =
+          timetable[used_times[index]];
+      } else {
+        time_table_arr[starting_times_slot.indexOf(time) + app] =
+          timetable[used_times[index]];
+        app += 1;
+      }
+    }
+  }
+});
+console.log(time_table_arr);
 ---
 
 <div class="card">
- {timtable_arr.map((element, index)=>(
-
- ))}
-
+  <!-- {time_table_arr.map((element, index) => <div>hello</div>)} -->
 </div>
