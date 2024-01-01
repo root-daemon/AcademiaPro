@@ -1,0 +1,14 @@
+---
+interface Props {
+  timetable: object;
+}
+const { timetable } = Astro.props;
+const timtable_arr =timetable instanceof Array;
+---
+
+<div class="card">
+ {timtable_arr.map((element, index)=>(
+
+ ))}
+
+</div>

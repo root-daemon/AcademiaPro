@@ -343,7 +343,7 @@
       "subject_code": "21GNM101L"
     }
   ],
-  "time-table": [
+  "timetable": [
     {
       "08:00 - 09:40": ["Object Oriented Design and Programming (Theory) 1007"],
       "11:35 - 12:25": ["General Aptitude (Theory) 1007"],

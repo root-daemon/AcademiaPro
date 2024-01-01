@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
-import TimeTable from '../components/TimeTable';
+import timetable from '../components/TimeTable';
 import '../styles/index.css';
 // const response = await fetch(
 //   'https://academai-s-3.azurewebsites.net//course-user',
@@ -19,6 +19,7 @@ import '../styles/index.css';
 // const data = await response.json();
 // console.log(data);
 import data from '../data/data.json';
+import TimeTable from '../components/TimeTable.astro';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -56,7 +57,32 @@ import data from '../data/data.json';
         </a>
       </nav>
     </div>
-    <div class="timetable"></div>
+    <div class="timetable">
+      <div class="timetable-img text-center">
+        <img src="img/content/timetable.png" alt="" />
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr class="bg-light-gray">
+              <th class="text-uppercase">8:00 - 8:50</th>
+              <th class="text-uppercase">8:50 - 9:40</th>
+              <th class="text-uppercase">9:45 - 10:35</th>
+              <th class="text-uppercase">10:40 - 11:30</th>
+              <th class="text-uppercase">11:35 - 12:25</th>
+              <th class="text-uppercase">12:30 - 13:20</th>
+              <th class="text-uppercase">13:25 - 14:15</th>
+              <th class="text-uppercase">14:20 - 15:10</th>
+              <th class="text-uppercase">15:10 - 16:00</th>
+              <th class="text-uppercase">16:00 - 16:50</th>
+            </tr>
+          </thead>
+          <tbody>
+            <TimeTable client:load timetable={data.timetable[0]} />
+          </tbody>
+        </table>
+      </div>
+    </div>
     <div class="card-grid">
       {
         data.courses.map((element, index) => (
