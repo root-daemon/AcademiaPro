@@ -68,6 +68,16 @@ starting_times.map(function (time, index) {
 console.log(time_table_arr);
 ---
 
-<div class="card">
-  <!-- {time_table_arr.map((element, index) => <div>hello</div>)} -->
+<div class="grid">
+  {time_table_arr.map((element, index) => (element ? <div>{String(element).split('(')[0]}</div> : <div></div>))}
 </div>
+
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+</style>
