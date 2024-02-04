@@ -4,22 +4,6 @@ interface Props {
 }
 
 const { title } = Astro.props;
-
-// const response = await fetch(
-//   'https://academai-s-3.azurewebsites.net//course-user',
-//   {
-//     method: 'POST',
-//     headers: {
-//       'x-access-token':
-//         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbkEiOiJiNzdmMTIwOGNiYzE3MmMwNDg2MGQwZTJlZDI1M2NhYmI0NGUzOTgwNzdkYzg4OTVkMWMyN2JlN2VmOTMzNzJkNGE2MGFjZGQ0MzRlNDNlMGQwYTE5NDJlNGFlODJlNTU4NjAxMWFiNjU4MjBmMTRmNTI0MTQyMzNkNDE2OTRiMyIsInRva2VuQiI6IjRhNTJkNWI2YTkwMmI3YWMyZWQ2MmM4OWMwMDhkOTI3NzYwZDNiZTJiNWEyMTY2NDY2NThiYzA1ODE5OWUyMzU5OWQzOGVhNDk1NDY0YTY5YmE2ZDFiOTNlODhjNWQ2ODFhY2Q5Y2EzYTZkMTUxN2Y1OTgzMDM3NGQ3ZGM0NmZiIiwidXNlcm5hbWUiOiJzczc5MjEifQ.XEk8FEnzw4KpPWFTHrI-v9-BKIPREgnEdKOgMopWdBA',
-//       Host: 'academai-s-3.azurewebsites.net',
-//       Origin: 'https://a.srmcheck.me',
-//       Referer: 'https://a.srmcheck.me/',
-//     },
-//   }
-// );
-// const data = await response.json();
-// console.log(data);
 ---
 
 <!doctype html>
@@ -36,37 +20,30 @@ const { title } = Astro.props;
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body>
     <slot />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-      crossorigin="anonymous"></script>
   </body>
 </html>
 <style is:global>
   :root {
-    --accent: 136, 58, 234;
-    --accent-light: 224, 204, 250;
-    --accent-dark: 49, 10, 101;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      rgb(var(--accent-light)) 30%,
-      white 60%
-    );
-    --yellow: #f3d86a;
-    --red: #fa7070;
-    --background: #050606;
-    --card: #1a1b1f;
-    --sub-card: #33343c;
-    --label: #dcdbff;
-    --label-light: #b8b8d6;
-    --label-grey: #5f5f6f;
-    --navbar: #2f2f2f;
-    --navbar-sidebar: #1f1f1f;
+    --background: #0a0d12;
+    --background-dark: #04070b;
+    --background-light: #12171e;
+    --side-active: #171d26;
+    --accent: #b3b3d1;
+    --theory: #F3D86A;
+    --practical: #70FA70;
+    --green: #64F58D;
+    --red: #F56464;
+    --color: #D4D4D4;
   }
   h1,
   h2,
@@ -74,22 +51,10 @@ const { title } = Astro.props;
   h4,
   p {
     margin-bottom: 0px;
+    font-family: "Inter", system-ui, sans-serif;
   }
   html {
-    font-family: system-ui, sans-serif;
     background: var(--background) !important;
-    background-size: 224px;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
   }
   body {
     background-color: var(--background) !important;
