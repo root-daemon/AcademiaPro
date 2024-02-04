@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
+
 interface Props {
   title: string;
 }
@@ -9,6 +11,8 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
+    <ViewTransitions />
+
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
@@ -20,43 +24,50 @@ const { title } = Astro.props;
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
   </head>
   <body>
     <slot />
-  </body>
+  </body><style is:global>
+    :root {
+      --background: #0a0d12;
+      --background-dark: #04070b;
+      --background-light: #12171e;
+      --side-active: #171d26;
+      --accent: #b3b3d1;
+      --theory: #f3d86a;
+      --practical: #70fa70;
+      --green: #64f58d;
+      --red: #f56464;
+      --color: #d4d4d4;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    div {
+      margin-bottom: 0px;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--color);
+    }
+    html {
+      background: var(--background) !important;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--background) !important;
+      padding: 12px !important;
+      margin: 0px !important;
+    }
+
+    hr {
+      margin: 0px !important;
+      border-top: 3px solid var(--side-active) !important;
+    }
+  </style>
 </html>
-<style is:global>
-  :root {
-    --background: #0a0d12;
-    --background-dark: #04070b;
-    --background-light: #12171e;
-    --side-active: #171d26;
-    --accent: #b3b3d1;
-    --theory: #F3D86A;
-    --practical: #70FA70;
-    --green: #64F58D;
-    --red: #F56464;
-    --color: #D4D4D4;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  p {
-    margin-bottom: 0px;
-    font-family: "Inter", system-ui, sans-serif;
-  }
-  html {
-    background: var(--background) !important;
-  }
-  body {
-    background-color: var(--background) !important;
-  }
-</style>

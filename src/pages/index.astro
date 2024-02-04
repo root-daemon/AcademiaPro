@@ -1,112 +1,45 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import '../styles/index.css';
-
-import data from '../data/data.json';
-import TimeTable from '../components/TimeTable.astro';
-
-// const response = await fetch(
-//   'https://academai-s-3.azurewebsites.net//course-user',
-//   {
-//     method: 'POST',
-//     headers: {
-//       'x-access-token':
-//         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbkEiOiJiNzdmMTIwOGNiYzE3MmMwNDg2MGQwZTJlZDI1M2NhYjMxNTg1M2NkYTM3MTU5MTk2ZGE4YTgxNmIzMWQ2ZTlhZGFkZWE3NzA2N2VkMGU4OTBkYjRhMDZhZjYwODNjZmNkZjE2ZTZkOTg2OWM0ZDYyOTRiODExYjQyNjM3ZDhiYSIsInRva2VuQiI6IjJmNGU2YTZkNzRlZTIzMjQyNDlmYWExNmJmODlmMjI0NmMwMjU2YzBmN2ZjMGNhOWI5MTdmOWNlZDllZTI0YTY0ZjUwYzQxMjUwYzViZWU0ZmE5NjQxNmZkNjIwMjk2YThlNTNiMTEzZjNmZTA2M2U3ZjU1YTk5ZWMxMmNlZTY2IiwidXNlcm5hbWUiOiJzczc5MjEifQ.MAAz-8qsRBzWMTcDC-_paLV2uZAVc9HhCgzTVSCCRqc',
-//       Host: 'academai-s-3.azurewebsites.net',
-//       Origin: 'https://a.srmcheck.me',
-//       Referer: 'https://a.srmcheck.me/',
-//     },
-//   }
-// );
-// const data = await response.json();
-// console.log(data);
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <div class="root">
-    <div class="l-navbar" id="nav-bar">
-      <nav class="nav d-flex justify-content-between">
-        <div>
-          <a href="#" class="nav_logo d-flex justify-content-center">
-            <img src="../../public/Vector.png" />
-          </a>
-        </div>
-        <div>
-          <div class="nav_list p-2">
-            <a href="#" class="nav_link">
-              <i class="bx bx-grid-alt nav_icon"></i>
-              <span class="nav_name">Dashboard</span>
-            </a>
-            <a href="#" class="nav_link">
-              <i class="bx bx-user nav_icon"></i>
-              <span class="nav_name">Users</span>
-            </a>
-            <a href="#" class="nav_link">
-              <i class="bx bx-message-square-detail nav_icon"></i>
-              <span class="nav_name">Messages</span>
-            </a>
-            <a href="#" class="nav_link">
-              <i class="bx bx-bookmark nav_icon"></i>
-              <span class="nav_name">Bookmark</span>
-            </a>
-          </div>
-        </div>
-        <a href="#" class="nav_link">
-          <i class="bx bx-log-out nav_icon"></i>
-          <span class="nav_name">SignOut</span>
-        </a>
-      </nav>
+<Layout title="Academia">
+  <main class="root">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <h1>Academia</h1>
+      <p>A better alternative to SRM-Academia and SRM check.</p>
+
+      <a class="login-btn" href="/login">Login</a>
     </div>
-    <div class="timetable">
-      <div class="timetable-img text-center">
-        <img src="img/content/timetable.png" alt="" />
-      </div>
-      <div class="table-responsive">
-        <table class="table table-bordered text-center">
-          <thead>
-            <tr class="bg-light-gray">
-              <th class="text-uppercase">8:00 - 8:50</th>
-              <th class="text-uppercase">8:50 - 9:40</th>
-              <th class="text-uppercase">9:45 - 10:35</th>
-              <th class="text-uppercase">10:40 - 11:30</th>
-              <th class="text-uppercase">11:35 - 12:25</th>
-              <th class="text-uppercase">12:30 - 13:20</th>
-              <th class="text-uppercase">13:25 - 14:15</th>
-              <th class="text-uppercase">14:20 - 15:10</th>
-              <th class="text-uppercase">15:10 - 16:00</th>
-              <th class="text-uppercase">16:00 - 16:50</th>
-            </tr>
-          </thead>
-          <tbody>
-            <TimeTable client:load timetable={data.timetable[0]} />
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="card-grid">
-      {
-        data.courses.map((element, index) => (
-          <Card
-            title={element.subject_name}
-            code={element.subject_code}
-            data={{
-              present:
-                Number(element.conducted_hours) - Number(element.absent_hours),
-              absent: Number(element.absent_hours),
-              total: Number(element.conducted_hours),
-            }}
-            percent={(
-              ((Number(element.conducted_hours) -
-                Number(element.absent_hours)) /
-                Number(element.conducted_hours)) *
-              100
-            )
-              .toFixed(2)
-              .toString()}
-          />
-        ))
-      }
-    </div>
-  </div>
+  </main>
+
+  <style>
+    .root {
+      padding: 2rem;
+    }
+
+    a {
+      background-color: var(--background-light);
+      font-size: 22px;
+      text-decoration: none;
+      margin-top: 18px !important;
+      color: var(--accent);
+      border: 2px solid var(--background-dark);
+      border-radius: 12px;
+      padding: 6px 12px;
+      font-size: 16px;
+      font-weight: 700;
+
+      width: -webkit-fit-content;
+
+      width: -moz-fit-content;
+
+      width: fit-content;
+    }
+
+    a:disabled {
+      border: 2px solid var(--yellow) !important;
+      background: #ffca630e !important;
+      color: var(--yellow) !important;
+    }
+  </style>
 </Layout>
