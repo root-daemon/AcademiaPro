@@ -65,11 +65,10 @@ starting_times.map(function (time, index) {
     }
   }
 });
-console.log(time_table_arr);
 ---
 
 <div class="grid">
-  {time_table_arr.map((element, index) => (element ? <div>{String(element).split('(')[0]}</div> : <div></div>))}
+  {time_table_arr.map((element, index) => (element ? <div id={String(element).includes('Theory') ? "theory" : "lab"}>{String(element).split('(')[0]}</div> : <span></span>))}
 </div>
 
 <style>
@@ -79,5 +78,9 @@ console.log(time_table_arr);
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+.theory {
+  background: var(--yellow);
 }
 </style>

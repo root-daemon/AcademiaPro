@@ -3,7 +3,7 @@ import data from "../../data/data.json";
 
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
-  const [hour, setHour] = useState<any>("");
+  const [hour, setHour] = useState<any>(0);
 
   useEffect(() => {
     fetch("https://academai-s-3.azurewebsites.net//do", {
@@ -19,8 +19,9 @@ export default function DayOrder() {
       .then((r) => r.text())
       .then((res) => {
         setDay(JSON.parse(res));
+      
 
-        setHour(data.timetable[Number(day?.day_order) - 1]);
+        setHour(Object.values(data.timetable[Number(JSON.parse(res).day_order[0]) - 1]).length);
       });
   }, []);
 

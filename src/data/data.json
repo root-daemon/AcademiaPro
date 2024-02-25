@@ -1,7 +1,7 @@
 {
   "courses": [
     {
-      "absent_hours": "4",
+      "absent_hours": "0",
       "category": "Theory",
       "conducted_hours": "26",
       "internal_marks": [
@@ -19,7 +19,7 @@
       "subject_name": "Professional Skills and Practices"
     },
     {
-      "absent_hours": "7",
+      "absent_hours": "40",
       "category": "Theory",
       "conducted_hours": "56",
       "internal_marks": [

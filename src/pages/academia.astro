@@ -93,21 +93,36 @@ import Hour from "../components/badges/Hour";
       </div>
     </div>
 
+    <button class="open" name="open-nav">
+      <svg
+        stroke="currentColor"
+        fill="currentColor"
+        stroke-width="0"
+        viewBox="0 0 24 24"
+        height="32px"
+        width="32px"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path d="M16 18V20H5V18H16ZM21 11V13H3V11H21ZM19 4V6H8V4H19Z"
+        ></path></svg
+      >
+    </button>
+
     <div class="content">
+      <h2 style="margin-top: 0px;" class="subtitle">Timetable</h2>
       <section class="table-responsive" id="timetable">
         <table class="table table-bordered text-center">
           <thead>
             <tr class="bg-light-gray">
-              <th class="text-uppercase">8:00 - 8:50</th>
-              <th class="text-uppercase">8:50 - 9:40</th>
-              <th class="text-uppercase">9:45 - 10:35</th>
-              <th class="text-uppercase">10:40 - 11:30</th>
-              <th class="text-uppercase">11:35 - 12:25</th>
-              <th class="text-uppercase">12:30 - 13:20</th>
-              <th class="text-uppercase">13:25 - 14:15</th>
-              <th class="text-uppercase">14:20 - 15:10</th>
-              <th class="text-uppercase">15:10 - 16:00</th>
-              <th class="text-uppercase">16:00 - 16:50</th>
+              <th class="text-uppercase">1</th>
+              <th class="text-uppercase">2</th>
+              <th class="text-uppercase">3</th>
+              <th class="text-uppercase">4</th>
+              <th class="text-uppercase">5</th>
+              <th class="text-uppercase">6</th>
+              <th class="text-uppercase">7</th>
+              <th class="text-uppercase">8</th>
+              <th class="text-uppercase">9</th>
+              <th class="text-uppercase">10</th>
             </tr>
           </thead>
           <tbody>
@@ -116,33 +131,41 @@ import Hour from "../components/badges/Hour";
         </table>
       </section>
       <section id="attendance" class="attendance">
-        {
-          data.courses.map((element, index) => (
-            <Card
-              title={element.subject_name}
-              code={element.subject_code}
-              data={{
-                present:
-                  Number(element.conducted_hours) -
-                  Number(element.absent_hours),
-                absent: Number(element.absent_hours),
-                total: Number(element.conducted_hours),
-              }}
-              percent={(
-                ((Number(element.conducted_hours) -
-                  Number(element.absent_hours)) /
-                  Number(element.conducted_hours)) *
-                100
-              )
-                .toFixed(2)
-                .toString()}
-            />
-          ))
-        }
+        <h2 class="subtitle">Attendance</h2>
+        <table class="att-holder">
+          {
+            data.courses.map((element, index) => (
+              <Card
+                title={element.subject_name}
+                code={element.subject_code}
+                category={element.category}
+                data={{
+                  present:
+                    Number(element.conducted_hours) -
+                    Number(element.absent_hours),
+                  absent: Number(element.absent_hours),
+                  total: Number(element.conducted_hours),
+                }}
+                percent={(
+                  ((Number(element.conducted_hours) -
+                    Number(element.absent_hours)) /
+                    Number(element.conducted_hours)) *
+                  100
+                )
+                  .toFixed(2)
+                  .toString()}
+              />
+            ))
+          }
+        </table>
       </section>
     </div>
   </main>
   <style>
+    .att-holder {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
     .root {
       display: flex;
       flex-direction: row;
@@ -205,6 +228,7 @@ import Hour from "../components/badges/Hour";
       top: 12px;
       padding: 22px;
       gap: 22px;
+      transition: 0.2s cubic-bezier(0.65, 0.35, 0.17, 1);
     }
 
     .nav h1 {
@@ -216,7 +240,69 @@ import Hour from "../components/badges/Hour";
     .content {
       background: var(--background-dark);
       border-radius: 28px;
-      padding: 18px;
+      padding: 24px 32px;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 18px 0px;
+      color: #ebebeb;
+    }
+
+    .open {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 5;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 5;
+      background: #0a0d12;
+      color: #d4d4d4;
+      border-radius: 50px;
+      width: 48px;
+      height: 48px;
+      font-family: "Inter";
+      font-weight: 700;
+      border: 2px solid #0a0d12;
+      font-size: 14px;
+      border: 2px solid rgb(7, 7, 7);
+    }
+    .viewable {
+      transition: 0.2s cubic-bezier(0.65, 0.35, 0.17, 1);
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(-200px);
+      }
+      to {
+        transform: translateX(0px);
+      }
+    }
+    @media only screen and (max-width: 900px) {
+      .nav {
+        transform: translateX(-200px);
+        display: none;
+        background: var(--background);
+        height: 100vh;
+        top: 0;
+        left: 0;
+      }
+
+      .viewable {
+        box-shadow: 20px 0px 200px 120px rgb(4 7 11);
+        display: flex;
+        position: fixed;
+        z-index: 8;
+        animation: 0.4s slide forwards;
+      }
+      .open {
+        display: block;
+      }
     }
   </style>
 </Layout>
@@ -262,6 +348,14 @@ import Hour from "../components/badges/Hour";
     },
     false
   );
+
+  const btn = document.querySelector(".open");
+  const nav = document.querySelector(".nav");
+
+  btn?.addEventListener("click", (e) => {
+    e.preventDefault();
+    nav?.classList.toggle("viewable");
+  });
 
   const home = document.querySelector(".h-button[href='#timetable']");
   home?.addEventListener("click", (e) => {

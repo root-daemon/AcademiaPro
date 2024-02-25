@@ -28,7 +28,7 @@ export default function DayOrder() {
         >
           {day.day_order.includes("No")
             ? "Holiday"
-            : `Day Order: ${day.day_order}`}
+            : `Day Order: ${day.day_order[0]}`}
         </span>
         <style>
           {`
