@@ -124,6 +124,12 @@ import Layout from "../layouts/Layout.astro";
   pass?.addEventListener("input", () => reset());
 
   btn?.addEventListener("click", (e) => {
+  var u = (user as HTMLInputElement).value
+  var p = (pass as HTMLInputElement).value
+
+  console.log(u, p)
+
+
     fetch("https://academai-s-3.azurewebsites.net//login", {
       method: "POST",
       cache: "force-cache",
@@ -134,8 +140,8 @@ import Layout from "../layouts/Layout.astro";
         "content-type": "application/json",
       },
       body: JSON.stringify({
-        username: (user as HTMLInputElement).value,
-        password: (pass as HTMLInputElement).value,
+        username: u,
+        password: p,
       }),
     })
       .then((d) => d.json())
