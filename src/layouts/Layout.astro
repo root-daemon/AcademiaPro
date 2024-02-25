@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -32,42 +32,75 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
-  </body><style is:global>
-    :root {
-      --background: #0a0d12;
-      --background-dark: #04070b;
-      --background-light: #12171e;
-      --side-active: #171d26;
-      --accent: #b3b3d1;
-      --theory: #f3d86a;
-      --practical: #70fa70;
-      --green: #64f58d;
-      --red: #f56464;
-      --color: #d4d4d4;
-    }
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    div {
-      margin-bottom: 0px;
-      font-family: "Inter", system-ui, sans-serif;
-      color: var(--color);
-    }
-    html {
-      background: var(--background) !important;
-      scroll-behavior: smooth;
-    }
-    body {
-      background-color: var(--background) !important;
-      padding: 12px !important;
-      margin: 0px !important;
-    }
+    <style is:global>
+      :root {
+        --background: #0a0d12;
+        --background-dark: #04070b;
+        --background-light: #12171e;
+        --side-active: #171d26;
+        --accent: #b3b3d1;
+        --theory: #f3d86a;
+        --practical: #70fa70;
+        --green: #64f58d;
+        --red: #f56464;
+        --color: #d4d4d4;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      p,
+      div {
+        margin-bottom: 0px;
+        font-family: "Inter", system-ui, sans-serif;
+        color: var(--color);
+      }
 
-    hr {
-      margin: 0px !important;
-      border-top: 3px solid var(--side-active) !important;
-    }
-  </style>
+      ::-webkit-scrollbar {
+        width: 16px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background-color: var(--background);
+      }
+
+      ::-webkit-scrollbar-track:hover {
+        background-color: var(--background);
+      }
+
+      /* scrollbar itself */
+      ::-webkit-scrollbar-thumb {
+        background: var(--background-dark);
+        border-radius: 16px;
+        border: 6px solid var(--background);
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        border: 3px solid var(--background-dark);
+      }
+
+      ::-webkit-scrollbar-corner {
+        background: var(--background-dark);
+      }
+
+      ::-webkit-scrollbar-button {
+        display: none;
+      }
+
+      html {
+        background: var(--background) !important;
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: var(--background) !important;
+        padding: 12px !important;
+        margin: 0px !important;
+      }
+
+      hr {
+        margin: 0px !important;
+        border-top: 3px solid var(--side-active) !important;
+      }
+    </style>
+  </body>
 </html>
