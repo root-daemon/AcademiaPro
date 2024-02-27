@@ -1,12 +1,12 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
 
-import data from "../data/data.json";
-import TimeTable from "../components/TimeTable.astro";
+import data from '../data/data.json';
+import TimeTable from '../components/TimeTable';
 
-import DayOrder from "../components/badges/DayOrder";
-import Hour from "../components/badges/Hour";
+import DayOrder from '../components/badges/DayOrder';
+import Hour from '../components/badges/Hour';
 
 // const response = await fetch(
 //   'https://academai-s-3.azurewebsites.net//course-user',
@@ -125,7 +125,7 @@ import Hour from "../components/badges/Hour";
               <th class="text-uppercase">10</th>
             </tr>
           </thead>
-          <TimeTable timetable={data.timetable[0]} />
+          <TimeTable client:only />
         </table>
       </section>
       <section id="attendance" class="attendance">
@@ -291,7 +291,7 @@ import Hour from "../components/badges/Hour";
       border-radius: 50px;
       width: 48px;
       height: 48px;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-weight: 700;
       border: 2px solid #0a0d12;
       font-size: 14px;
@@ -334,17 +334,17 @@ import Hour from "../components/badges/Hour";
 </Layout>
 <script>
   document.addEventListener(
-    "astro:page-load",
+    'astro:page-load',
     async function () {
-      if (!localStorage.getItem("access")) window.location.href = "/login";
+      if (!localStorage.getItem('access')) window.location.href = '/login';
 
-      const sections = document.querySelectorAll("section");
-      const menu_links = document.querySelectorAll(".h-button");
+      const sections = document.querySelectorAll('section');
+      const menu_links = document.querySelectorAll('.h-button');
 
       const makeActive = (link: number) =>
-        menu_links[link].classList.add("active");
+        menu_links[link].classList.add('active');
       const removeActive = (link: number) =>
-        menu_links[link].classList.remove("active");
+        menu_links[link].classList.remove('active');
       const removeAllActive = () =>
         [...Array(sections.length).keys()].forEach((link) =>
           removeActive(link)
@@ -354,7 +354,7 @@ import Hour from "../components/badges/Hour";
 
       let currentActive = 0;
 
-      window.addEventListener("scroll", () => {
+      window.addEventListener('scroll', () => {
         const current =
           sections.length -
           [...sections]
@@ -375,17 +375,18 @@ import Hour from "../components/badges/Hour";
     false
   );
 
-  const btn = document.querySelector(".open");
-  const nav = document.querySelector(".nav");
+  const btn = document.querySelector('.open');
+  const nav = document.querySelector('.nav');
 
-  btn?.addEventListener("click", (e) => {
+  btn?.addEventListener('click', (e) => {
     e.preventDefault();
-    nav?.classList.toggle("viewable");
+    nav?.classList.toggle('viewable');
   });
 
   const home = document.querySelector(".h-button[href='#timetable']");
-  home?.addEventListener("click", (e) => {
+  home?.addEventListener('click', (e) => {
     // e.preventDefault()
     setTimeout(() => window.scroll(0, 0), 20);
   });
 </script>
+../components/TimeTable.tsx
