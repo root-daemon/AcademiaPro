@@ -7,7 +7,8 @@ const TimeTableComponent = () => {
   const [timetable, setTimeTable] = useState<any>({});
 
   useEffect(() => {
-    if(localStorage.getItem('do')) {setDay(localStorage.getItem('do') || '')}
+    const local = localStorage.getItem('do')
+    if(local) {setDay(local)}
 
     fetch('https://academai-s-3.azurewebsites.net//do', {
       method: 'POST',
@@ -22,7 +23,6 @@ const TimeTableComponent = () => {
     })
       .then((r) => r.text())
       .then((res: any) => {
-        console.log(res);
         setDay(
           JSON.parse(res).day_order.includes('No')
             ? null
@@ -38,10 +38,7 @@ const TimeTableComponent = () => {
   }, []);
 
   useEffect(() => {
-    console.log(
-      day,
-      JSON.parse(localStorage.getItem('data') || '{}')['time-table'][Number(day) - 1]
-    );
+    
     if (
       localStorage.getItem('data') &&
       JSON.stringify(localStorage.getItem('data'))
@@ -51,9 +48,7 @@ const TimeTableComponent = () => {
         JSON.parse(localStorage.getItem('data') || '{}')['time-table'][Number(day) - 1]
       );
     }
-  }, [day]);
 
-  useEffect(() => {
     fetch('https://academai-s-3.azurewebsites.net//course-user', {
       method: 'POST',
       headers: {
@@ -75,7 +70,7 @@ const TimeTableComponent = () => {
       });
   }, [day]);
 
-  const [table, setTable] = useState([]);
+  const [table, setTable] = useState<any[] | any>([]);
 
   useEffect(() => {
     const time_table_arr: any[] = [
@@ -149,12 +144,12 @@ const TimeTableComponent = () => {
     });
     console.log(time_table_arr);
     setTable(time_table_arr);
-  }, [day, timetable]);
+  }, [timetable]);
 
   return (
     <>
       <tr className="tr">
-        {table.map((element, index) =>
+        {table.map((element: any, index: React.Key | null | undefined) =>
           element ? (
             <td
               key={index}
