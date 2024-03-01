@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 
 const TimeTableComponent = () => {
-  const [day, setDay] = useState<number>(1);
+  const [day, setDay] = useState<string | number>(1);
   const [data, setData] = useState<any>({});
 
   const [timetable, setTimeTable] = useState<any>({});
 
   useEffect(() => {
+    if(localStorage.getItem('do')) {setDay(localStorage.getItem('do') || '')}
+
     fetch('https://academai-s-3.azurewebsites.net//do', {
       method: 'POST',
       headers: {
@@ -22,15 +24,23 @@ const TimeTableComponent = () => {
       .then((res: any) => {
         console.log(res);
         setDay(
-          JSON.parse(res).day_order.includes('No') ? null : JSON.parse(res).day_order[0]
+          JSON.parse(res).day_order.includes('No')
+            ? null
+            : JSON.parse(res).day_order[0]
         );
-        localStorage.setItem('do', JSON.parse(res).day_order.includes('No') ? null : JSON.parse(res).day_order[0])
+        localStorage.setItem(
+          'do',
+          JSON.parse(res).day_order.includes('No')
+            ? null
+            : JSON.parse(res).day_order[0]
+        );
       });
   }, []);
 
   useEffect(() => {
-    console.log(day, 
-      JSON.parse(localStorage.getItem('data') || '{}')['time-table'][day - 1]
+    console.log(
+      day,
+      JSON.parse(localStorage.getItem('data') || '{}')['time-table'][Number(day) - 1]
     );
     if (
       localStorage.getItem('data') &&
@@ -38,15 +48,12 @@ const TimeTableComponent = () => {
     ) {
       setData(JSON.parse(localStorage.getItem('data') || ''));
       setTimeTable(
-        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][day-1]
+        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][Number(day) - 1]
       );
     }
-  }, [day])
-
+  }, [day]);
 
   useEffect(() => {
-    
-
     fetch('https://academai-s-3.azurewebsites.net//course-user', {
       method: 'POST',
       headers: {
@@ -63,24 +70,24 @@ const TimeTableComponent = () => {
         if (data !== JSON.parse(res)) {
           setData(JSON.parse(res));
           localStorage.setItem('data', res);
-        } else return;
+        };
         setTimeTable(day ? data.timetable[0] : null);
       });
   }, [day]);
 
-  const [table, setTable] = useState([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ]);
+  const [table, setTable] = useState([]);
 
   useEffect(() => {
-    const time_table_arr = [null, null, null, null, null, null, null, null];
+    const time_table_arr: any[] = [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+    ];
     var used_times: string[] = [];
     var starting_times = [];
     var end_times: any[] = [];
@@ -108,6 +115,7 @@ const TimeTableComponent = () => {
       '16:00',
       '16:50',
     ];
+
     Object.keys(timetable).forEach((key) => used_times.push(key));
     used_times.pop();
     for (var i = 0; i < used_times.length; i++) {
@@ -139,9 +147,9 @@ const TimeTableComponent = () => {
         }
       }
     });
-
+    console.log(time_table_arr);
     setTable(time_table_arr);
-  }, [timetable]);
+  }, [day, timetable]);
 
   return (
     <>
