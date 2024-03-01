@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import data from '../data/data.json';
 const TimeTableComponent = () => {
   const [day, setDay] = useState<string | number>(1);
   const [data, setData] = useState<any>({});
@@ -7,8 +7,10 @@ const TimeTableComponent = () => {
   const [timetable, setTimeTable] = useState<any>({});
 
   useEffect(() => {
-    const local = localStorage.getItem('do')
-    if(local) {setDay(local)}
+    const local = localStorage.getItem('do');
+    if (local) {
+      setDay(local);
+    }
 
     fetch('https://academai-s-3.azurewebsites.net//do', {
       method: 'POST',
@@ -38,14 +40,15 @@ const TimeTableComponent = () => {
   }, []);
 
   useEffect(() => {
-    
     if (
       localStorage.getItem('data') &&
       JSON.stringify(localStorage.getItem('data'))
     ) {
       setData(JSON.parse(localStorage.getItem('data') || ''));
+      console.log(data);
+      //@ts-ignore
       setTimeTable(
-        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][Number(day) - 1]
+        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][2]
       );
     }
 
@@ -65,8 +68,8 @@ const TimeTableComponent = () => {
         if (data !== JSON.parse(res)) {
           setData(JSON.parse(res));
           localStorage.setItem('data', res);
-        };
-        setTimeTable(day ? data.timetable[0] : null);
+        }
+        setTimeTable(data.timetable[1]);
       });
   }, [day]);
 
