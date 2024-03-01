@@ -48,7 +48,9 @@ const TimeTableComponent = () => {
       console.log(data);
       //@ts-ignore
       setTimeTable(
-        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][0]
+        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][
+          Number(day) - 1
+        ]
       );
     }
 
@@ -69,41 +71,58 @@ const TimeTableComponent = () => {
           setData(JSON.parse(res));
           localStorage.setItem('data', res);
         }
-        setTimeTable(data.timetable[0]);
+        setTimeTable(data.timetable[Number(day) - 1]);
       });
   }, [day]);
 
   const [table, setTable] = useState<any[] | any>([]);
+
   useEffect(() => {
     const timeTableArr = Array(10).fill(null);
-    const usedTimes = Object.keys(timetable).filter(key => key);
-    const startingTimesSlot = ['08:00', '08:50', '09:45', '10:40', '11:35', '12:30', '13:25', '14:20', '15:10', '16:00'];
-    const endingTimesSlot = ['08:50', '09:40', '10:35', '11:30', '12:25', '13:20', '14:15', '15:10', '16:00', '16:50'];
-   
-    usedTimes.forEach(usedTime => {
-       const startTime = usedTime.slice(0, 5);
-       const endTime = usedTime.slice(-5);
-       const startIndex = startingTimesSlot.indexOf(startTime);
-   
-       if (startIndex !== -1 && endingTimesSlot[startIndex] === endTime) {
-         timeTableArr[startIndex] = timetable[usedTime];
-       } else {
-         let app = 0;
-         while (startIndex + app < endingTimesSlot.length) {
-           if (endingTimesSlot[startIndex + app] === endTime) {
-             timeTableArr[startIndex + app] = timetable[usedTime];
-             break;
-           }
-           app += 1;
-         }
-       }
+    const usedTimes = Object.keys(timetable).filter((key) => key);
+    const startingTimesSlot = [
+      '08:00',
+      '08:50',
+      '09:45',
+      '10:40',
+      '11:35',
+      '12:30',
+      '13:25',
+      '14:20',
+      '15:10',
+      '16:00',
+    ];
+    const endingTimesSlot = [
+      '08:50',
+      '09:40',
+      '10:35',
+      '11:30',
+      '12:25',
+      '13:20',
+      '14:15',
+      '15:10',
+      '16:00',
+      '16:50',
+    ];
+
+    usedTimes.forEach((usedTime) => {
+      const startTime = usedTime.slice(0, 5);
+      const endTime = usedTime.slice(-5);
+      const startIndex = startingTimesSlot.indexOf(startTime);
+      const endIndex = endingTimesSlot.indexOf(endTime);
+
+      // Ensure the endIndex is not out of bounds
+      const safeEndIndex = Math.min(endIndex, startingTimesSlot.length - 1);
+
+      // Fill the slots from startIndex to safeEndIndex
+      for (let i = startIndex; i <= safeEndIndex; i++) {
+        timeTableArr[i] = timetable[usedTime];
+      }
     });
-   
+
     console.log(timeTableArr);
     setTable(timeTableArr);
-   }, [timetable]);
-   
-   
+  }, [timetable]);
 
   return (
     <>
@@ -135,13 +154,13 @@ const TimeTableComponent = () => {
           #theory, #practical {
             color: #0a0d12;
             font-weight: 700;
-            max-width: 2vw;
             font-size: 12px;
             text-align: left;
           }
 
           .tr {
             border: 0px none;
+            display: flex;
           }
 
           .tr td:first-child {
@@ -150,6 +169,9 @@ const TimeTableComponent = () => {
 
           .tr td:last-child {
             border-radius: 0 12px 12px 0;
+          }
+          .tr td{
+            width: 9.7%;
           }
         `}
       </style>
