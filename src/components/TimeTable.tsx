@@ -49,7 +49,7 @@ const TimeTableComponent = () => {
       //@ts-ignore
       setTimeTable(
         JSON.parse(localStorage.getItem('data') || '{}')['time-table'][
-          Number(day) - 1
+          4
         ]
       );
     }
@@ -71,7 +71,7 @@ const TimeTableComponent = () => {
           setData(JSON.parse(res));
           localStorage.setItem('data', res);
         }
-        setTimeTable(data.timetable[Number(day) - 1]);
+        setTimeTable(data.timetable[4]);
       });
   }, [day]);
 
@@ -147,11 +147,11 @@ const TimeTableComponent = () => {
             background: var(--theory);
           }
 
-          #practical {
+          #lab {
             background: var(--practical);
           }
 
-          #theory, #practical {
+          #theory, #lab {
             color: #0a0d12;
             font-weight: 700;
             font-size: 12px;
