@@ -1,79 +1,80 @@
-import React, { useEffect, useState } from 'react';
-import data from '../data/data.json';
+import { useStore } from "@nanostores/react";
+import { useEffect, useState } from "react";
+import { dayOrder } from "../stores/DayOrder";
+import { dataJSON } from "../stores/DataStore";
+
 const TimeTableComponent = () => {
-  const [day, setDay] = useState<string | number>(1);
+  const [day, setDay] = useState<string | number | null>(1);
   const [data, setData] = useState<any>({});
 
   const [timetable, setTimeTable] = useState<any>({});
 
+  const $dayOrder = useStore(dayOrder);
+  const $data = useStore(dataJSON);
+
   useEffect(() => {
-    const local = localStorage.getItem('do');
+    const local = localStorage.getItem("do");
     if (local) {
       setDay(local);
     }
-
-    fetch('https://academai-s-3.azurewebsites.net//do', {
-      method: 'POST',
-      headers: {
-        Host: 'academai-s-3.azurewebsites.net',
-        Origin: 'https://a.srmcheck.me',
-        Referer: 'https://a.srmcheck.me/',
-        'content-type': 'application/json',
-        'Cache-Control': 'max-age=604800 must-revalidate',
-        'x-access-token': localStorage.getItem('access') as string,
-      },
-    })
-      .then((r) => r.text())
-      .then((res: any) => {
-        setDay(
-          JSON.parse(res).day_order.includes('No')
-            ? null
-            : JSON.parse(res).day_order[0]
-        );
-        localStorage.setItem(
-          'do',
-          JSON.parse(res).day_order.includes('No')
-            ? null
-            : JSON.parse(res).day_order[0]
-        );
-      });
+    if (JSON.parse($dayOrder).day_order) {
+      setDay(
+        JSON.parse($dayOrder).day_order.includes("No")
+          ? null
+          : JSON.parse($dayOrder).day_order[0]
+      );
+    }
   }, []);
 
   useEffect(() => {
-    if (
-      localStorage.getItem('data') &&
-      JSON.stringify(localStorage.getItem('data'))
-    ) {
-      setData(JSON.parse(localStorage.getItem('data') || ''));
-      console.log(data);
-      //@ts-ignore
-      setTimeTable(
-        JSON.parse(localStorage.getItem('data') || '{}')['time-table'][
-          4
-        ]
-      );
+    if (JSON.parse($data)?.message == "Token is invalid !!") {
+      localStorage.removeItem("access");
+      dataJSON.set('{}')
+      window.location.href = "/login";
     }
 
-    fetch('https://academai-s-3.azurewebsites.net//course-user', {
-      method: 'POST',
+    if (
+      JSON.parse($data)["time-table"] ||
+      (localStorage.getItem("data") &&
+        JSON.stringify(localStorage.getItem("data")))
+    ) {
+      const d = JSON.parse($data)["time-table"]
+        ? $data
+        : localStorage.getItem("data") || "{}";
+
+      setData(JSON.parse(d));
+
+      setTimeTable(JSON.parse(d)["time-table"][Number(day) - 1]);
+    }
+    
+    fetch("https://academai-s-3.azurewebsites.net//course-user", {
+      method: "POST",
       headers: {
-        'x-access-token': localStorage.getItem('access') as string,
-        Host: 'academai-s-3.azurewebsites.net',
-        Origin: 'https://a.srmcheck.me',
-        Referer: 'https://a.srmcheck.me/',
-        'Cache-Control': 'max-age=604800 must-revalidate',
+        "x-access-token": localStorage.getItem("access") as string,
+        Host: "academai-s-3.azurewebsites.net",
+        Origin: "https://a.srmcheck.me",
+        Referer: "https://a.srmcheck.me/",
+        "Cache-Control": "max-age=604800 must-revalidate",
       },
     })
       .then((r) => r.text())
       .then((res) => {
-        console.log(JSON.parse(res));
+        dataJSON.set(res);
         if (data !== JSON.parse(res)) {
           setData(JSON.parse(res));
-          localStorage.setItem('data', res);
+          localStorage.setItem("data", res);
         }
-        setTimeTable(data.timetable[4]);
+        setTimeTable(data.timetable[Number(day) - 1]);
       });
   }, [day]);
+
+  useEffect(() => {
+
+    if (data?.message == "Token is invalid !!") {
+      localStorage.removeItem("access");
+      window.location.href = "/login";
+    }
+  }, [data]);
 
   const [table, setTable] = useState<any[] | any>([]);
 
@@ -81,28 +82,28 @@ const TimeTableComponent = () => {
     const timeTableArr = Array(10).fill(null);
     const usedTimes = Object.keys(timetable).filter((key) => key);
     const startingTimesSlot = [
-      '08:00',
-      '08:50',
-      '09:45',
-      '10:40',
-      '11:35',
-      '12:30',
-      '13:25',
-      '14:20',
-      '15:10',
-      '16:00',
+      "08:00",
+      "08:50",
+      "09:45",
+      "10:40",
+      "11:35",
+      "12:30",
+      "13:25",
+      "14:20",
+      "15:10",
+      "16:00",
     ];
     const endingTimesSlot = [
-      '08:50',
-      '09:40',
-      '10:35',
-      '11:30',
-      '12:25',
-      '13:20',
-      '14:15',
-      '15:10',
-      '16:00',
-      '16:50',
+      "08:50",
+      "09:40",
+      "10:35",
+      "11:30",
+      "12:25",
+      "13:20",
+      "14:15",
+      "15:10",
+      "16:00",
+      "16:50",
     ];
 
     usedTimes.forEach((usedTime) => {
@@ -120,7 +121,6 @@ const TimeTableComponent = () => {
       }
     });
 
-    console.log(timeTableArr);
     setTable(timeTableArr);
   }, [timetable]);
 
@@ -131,9 +131,9 @@ const TimeTableComponent = () => {
           element ? (
             <td
               key={index}
-              id={String(element).includes('Theory') ? 'theory' : 'lab'}
+              id={String(element).includes("Theory") ? "theory" : "lab"}
             >
-              {String(element).split('(')[0]}
+              {String(element).split("(")[0]}
             </td>
           ) : (
             <td key={index} />
