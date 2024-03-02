@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
-import { useStore } from '@nanostores/react';
-import { dayOrder } from '../../stores/DayOrder';
+import { useStore } from "@nanostores/react";
+import { dayOrder } from "../../stores/DayOrder";
+
+import styles from "../styles/Badge.module.css";
 
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
@@ -21,7 +23,7 @@ export default function DayOrder() {
     })
       .then((r) => r.text())
       .then((res) => {
-        dayOrder.set(res)
+        dayOrder.set(res);
         setDay(JSON.parse(res));
       });
   }, []);
@@ -30,29 +32,16 @@ export default function DayOrder() {
     return (
       <>
         <span
-          className={day.day_order.includes("No") ? "badge holiday" : "badge"}
+          className={
+            day.day_order.includes("No")
+              ? [styles.badge, styles.holiday].join(" ")
+              : styles.badge
+          }
         >
           {day.day_order.includes("No")
             ? "Holiday"
             : `Day Order: ${day.day_order[0]}`}
         </span>
-        <style>
-          {`
-            .badge {
-                background: #171d26;
-                padding: 8px 12px;
-                border-radius: 500px;
-                color: var(--accent);
-                font-weight: 500;
-                font-size: 18px;
-              }
-
-              .holiday {
-                background: #261717 !important;
-                color: var(--red) !important;
-              }
-              `}
-        </style>
       </>
     );
   } else return null;
