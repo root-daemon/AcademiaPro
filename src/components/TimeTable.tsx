@@ -156,6 +156,8 @@ const TimeTableComponent = () => {
             font-weight: 700;
             font-size: 12px;
             text-align: left;
+            padding: 4px;
+            border: 1px solid;
           }
 
           .tr {
