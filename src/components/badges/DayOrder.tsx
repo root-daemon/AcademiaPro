@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 
+import { useStore } from '@nanostores/react';
+import { dayOrder } from '../../stores/DayOrder';
+
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
+
+  const $dayOrder = useStore(dayOrder);
 
   useEffect(() => {
     fetch("https://academai-s-3.azurewebsites.net//do", {
@@ -16,6 +21,7 @@ export default function DayOrder() {
     })
       .then((r) => r.text())
       .then((res) => {
+        dayOrder.set(res)
         setDay(JSON.parse(res));
       });
   }, []);
