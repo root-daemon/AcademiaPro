@@ -9,7 +9,7 @@ import styles from '../styles/Badge.module.css'
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-export default function DayOrder() {
+export default function Hour() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
   const [hour, setHour] = useState<any>(0);
 

@@ -19,6 +19,12 @@
 .tr {
   border: 0px none;
   display: flex;
+  background: #0A0D12;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
 }
 
 .tr td:first-child {
@@ -29,5 +35,5 @@
   border-radius: 0 12px 12px 0;
 }
 .tr td {
-  width: 9.7%;
+  width: 10.7%;
 }

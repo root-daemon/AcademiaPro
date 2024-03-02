@@ -8,10 +8,12 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const AttendanceTable = () => {
   const $data = useStore(dataJSON);
-
   return (
     <>
       <table className={styles.attr}>
+        <thead />
+        <thead />
+
         {$data && JSON.parse($data)["time-table"] ? (
           JSON.parse($data).courses.map(
             (
@@ -25,6 +27,7 @@ const AttendanceTable = () => {
               index: any
             ) => (
               <Card
+                key={index}
                 title={element.subject_name}
                 code={element.subject_code}
                 category={element.category}
