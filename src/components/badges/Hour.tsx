@@ -4,6 +4,8 @@ import { dayOrder } from "../../stores/DayOrder";
 import { useStore } from "@nanostores/react";
 import { dataJSON } from "../../stores/DataStore";
 
+import styles from '../styles/Badge.module.css'
+
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
   const [hour, setHour] = useState<any>(0);
@@ -28,20 +30,8 @@ export default function DayOrder() {
     <>
       {day &&
         (day.day_order.includes("No") ? null : (
-          <span className="badge">{hour} hours</span>
+          <span className={styles.badge}>{hour} hours</span>
         ))}
-      <style>
-        {`
-            .badge {
-                background: #171d26;
-                padding: 8px 12px;
-                border-radius: 500px;
-                color: var(--accent);
-                font-weight: 500;
-                font-size: 18px;
-              }
-              `}
-      </style>
     </>
   );
 }

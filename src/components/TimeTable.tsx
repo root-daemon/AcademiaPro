@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { dayOrder } from "../stores/DayOrder";
 import { dataJSON } from "../stores/DataStore";
 
+import styles from './styles/Timetable.module.css'
+
 const TimeTableComponent = () => {
   const [day, setDay] = useState<string | number | null>(1);
   const [data, setData] = useState<any>({});
@@ -126,12 +128,12 @@ const TimeTableComponent = () => {
 
   return (
     <>
-      <tr className="tr">
+      <tr className={styles.tr}>
         {table.map((element: any, index: any) =>
           element ? (
             <td
               key={index}
-              id={String(element).includes("Theory") ? "theory" : "lab"}
+              className={String(element).includes("Theory") ? styles.theory : styles.lab}
             >
               {String(element).split("(")[0]}
             </td>
@@ -141,42 +143,7 @@ const TimeTableComponent = () => {
         )}
       </tr>
 
-      <style>
-        {`
-          #theory {
-            background: var(--theory);
-          }
 
-          #lab {
-            background: var(--practical);
-          }
-
-          #theory, #lab {
-            color: #0a0d12;
-            font-weight: 700;
-            font-size: 12px;
-            text-align: left;
-            padding: 4px;
-            border: 1px solid;
-          }
-
-          .tr {
-            border: 0px none;
-            display: flex;
-          }
-
-          .tr td:first-child {
-            border-radius: 12px 0 0 12px;
-          }
-
-          .tr td:last-child {
-            border-radius: 0 12px 12px 0;
-          }
-          .tr td{
-            width: 9.7%;
-          }
-        `}
-      </style>
     </>
   );
 };
