@@ -1,45 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+import Home from '../components/Home'
 ---
 
 <Layout title="Academia">
-  <main class="root">
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <h1>Academia</h1>
-      <p>A better alternative to SRM-Academia and SRM check.</p>
-
-      <a class="login-btn" href="/login">Login</a>
-    </div>
-  </main>
-
-  <style>
-    .root {
-      padding: 2rem;
-    }
-
-    a {
-      background-color: var(--background-light);
-      font-size: 22px;
-      text-decoration: none;
-      margin-top: 18px !important;
-      color: var(--accent);
-      border: 2px solid var(--background-dark);
-      border-radius: 12px;
-      padding: 6px 12px;
-      font-size: 16px;
-      font-weight: 700;
-
-      width: -webkit-fit-content;
-
-      width: -moz-fit-content;
-
-      width: fit-content;
-    }
-
-    a:disabled {
-      border: 2px solid var(--yellow) !important;
-      background: #ffca630e !important;
-      color: var(--yellow) !important;
-    }
-  </style>
+  <Home client:only />
 </Layout>

@@ -37,6 +37,7 @@ const { title } = Astro.props;
       :root {
         --background: #0a0d12;
         --background-dark: #04070b;
+        --background-darker: #04070b;
         --background-light: #12171e;
         --side-active: #171d26;
         --accent: #b3b3d1;
@@ -55,8 +56,7 @@ const { title } = Astro.props;
         animation-timing-function: cubic-bezier(0.88, -0.8, 0.58, 1) !important;
       }
 
-      .react-loading-skeleton:nth-of-type(2n+1) {
-
+      .react-loading-skeleton:nth-of-type(2n + 1) {
         animation-duration: 3s !important;
       }
 
