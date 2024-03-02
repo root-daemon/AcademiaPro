@@ -1,9 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 
-import data from "../stores/data.json";
 import TimeTable from "../components/TimeTable";
+import AttendanceTable from "../components/Attendance";
 
 import DayOrder from "../components/badges/DayOrder";
 import Hour from "../components/badges/Hour";
@@ -114,41 +113,11 @@ import Hour from "../components/badges/Hour";
       </section>
       <section id="attendance" class="attendance">
         <h2 class="subtitle">Attendance</h2>
-        <table class="att-holder">
-          {
-            data.courses.map((element, index) => (
-              <Card
-                title={element.subject_name}
-                code={element.subject_code}
-                category={element.category}
-                data={{
-                  present:
-                    Number(element.conducted_hours) -
-                    Number(element.absent_hours),
-                  absent: Number(element.absent_hours),
-                  total: Number(element.conducted_hours),
-                }}
-                percent={(
-                  ((Number(element.conducted_hours) -
-                    Number(element.absent_hours)) /
-                    Number(element.conducted_hours)) *
-                  100
-                )
-                  .toFixed(2)
-                  .toString()}
-              />
-            ))
-          }
-        </table>
+        <AttendanceTable client:only />
       </section>
     </div>
   </main>
   <style>
-    .att-holder {
-      border-collapse: separate;
-      border-spacing: 0;
-      width: -webkit-fill-available;
-    }
     .root {
       display: flex;
       flex-direction: row;
@@ -314,6 +283,8 @@ import Hour from "../components/badges/Hour";
         display: block;
       }
     }
+
+    
   </style>
 </Layout>
 <script>
