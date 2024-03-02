@@ -5,6 +5,7 @@ interface Props {
   title: string;
 }
 
+import "react-loading-skeleton/dist/skeleton.css";
 const { title } = Astro.props;
 ---
 
@@ -45,6 +46,19 @@ const { title } = Astro.props;
         --red: #f56464;
         --color: #d4d4d4;
       }
+      .react-loading-skeleton {
+        --base-color: #0d1116 !important;
+        --highlight-color: #495362ee !important;
+        --pseudo-element-display: block !important;
+        --animation-direction: alternate !important;
+        animation-timing-function: cubic-bezier(0.88, -0.8, 0.58, 1) !important;
+      }
+
+      .react-loading-skeleton:nth-of-type(2n+1) {
+
+        animation-duration: 3s !important;
+      }
+
       h1,
       h2,
       h3,
