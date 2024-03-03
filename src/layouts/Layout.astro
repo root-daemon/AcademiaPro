@@ -81,10 +81,17 @@ const { title } = Astro.props;
         --highlight-color: #495362ee !important;
         --pseudo-element-display: block !important;
         --animation-direction: alternate !important;
+        -webkit-animation-timing-function: cubic-bezier(
+          0.88,
+          -0.8,
+          0.58,
+          1
+        ) !important;
         animation-timing-function: cubic-bezier(0.88, -0.8, 0.58, 1) !important;
       }
 
       .react-loading-skeleton:nth-of-type(2n + 1) {
+        -webkit-animation-duration: 3s !important;
         animation-duration: 3s !important;
       }
 

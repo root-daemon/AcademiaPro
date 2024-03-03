@@ -11,6 +11,8 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  -o-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 .hero {
@@ -23,15 +25,26 @@
   transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   padding: 32px 22px;
   height: 50vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 28px;
   opacity: 0;
 
   animation: 0.7s fade forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
 
   -webkit-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
@@ -55,13 +68,18 @@
 }
 
 .features {
+  -webkit-animation: 0.7s fade forwards;
   animation: 0.7s fade forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1s;
   animation-delay: 1s;
   opacity: 0;
 
   margin-top: 12px;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   padding: 16px 32px;
 }
@@ -77,9 +95,16 @@
 }
 
 .tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 14px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -98,6 +123,8 @@
 }
 
 .book {
+  -webkit-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  -o-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 
   animation: 2s 1s float cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -106,10 +133,16 @@
 
 .blockquotewarn {
   color: var(--yellow) !important;
+  -webkit-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  -o-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 
+  -webkit-animation: 0.7s fade forwards;
+
   animation: 0.7s fade forwards;
+  -webkit-animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-animation-delay: 1.2s;
   animation-delay: 1.2s;
   opacity: 0;
 
@@ -133,6 +166,8 @@
 }
 
 .blockquotewarn svg {
+  -webkit-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  -o-transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 
   font-size: 22px;
@@ -198,11 +233,18 @@
   -webkit-transform: scale(0.95) rotate(-2deg);
   -ms-transform: scale(0.95) rotate(-2deg);
   transform: scale(0.95) rotate(-2deg);
+  -moz-transform: scale(0.95) rotate(-2deg);
+  -o-transform: scale(0.95) rotate(-2deg);
 }
 
 @media only screen and (max-width: 940px) {
   .features {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     gap: 12px;
   }
@@ -235,25 +277,64 @@
   }
 }
 
-@keyframes float {
+@-webkit-keyframes float {
   0%,
   100% {
     filter: drop-shadow(5px 12px 0px rgba(0, 0, 0, 0.6));
+    -webkit-transform: translatey(0px);
     transform: translatey(0px);
     -webkit-filter: drop-shadow(5px 12px 0px rgba(0, 0, 0, 0.6));
   }
 
   50%,
   85% {
+    -webkit-filter: drop-shadow(5px 10px 0px rgba(0, 0, 0, 0.2));
     filter: drop-shadow(5px 10px 0px rgba(0, 0, 0, 0.2));
+    -webkit-transform: translatey(-20px);
     transform: translatey(-20px);
     -webkit-filter: drop-shadow(5px 15px 0px rgba(0, 0, 0, 0.2));
   }
   95%,
   99.5% {
     filter: drop-shadow(5px 0px 0px rgba(0, 0, 0, 0.6));
+    -webkit-transform: translatey(0px);
     transform: translatey(0px);
     -webkit-filter: drop-shadow(5px 0px 0px rgba(0, 0, 0, 0.6));
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    filter: drop-shadow(5px 12px 0px rgba(0, 0, 0, 0.6));
+    -webkit-transform: translatey(0px);
+    transform: translatey(0px);
+    -webkit-filter: drop-shadow(5px 12px 0px rgba(0, 0, 0, 0.6));
+  }
+
+  50%,
+  85% {
+    -webkit-filter: drop-shadow(5px 10px 0px rgba(0, 0, 0, 0.2));
+    filter: drop-shadow(5px 10px 0px rgba(0, 0, 0, 0.2));
+    -webkit-transform: translatey(-20px);
+    transform: translatey(-20px);
+    -webkit-filter: drop-shadow(5px 15px 0px rgba(0, 0, 0, 0.2));
+  }
+  95%,
+  99.5% {
+    filter: drop-shadow(5px 0px 0px rgba(0, 0, 0, 0.6));
+    -webkit-transform: translatey(0px);
+    transform: translatey(0px);
+    -webkit-filter: drop-shadow(5px 0px 0px rgba(0, 0, 0, 0.6));
+  }
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 

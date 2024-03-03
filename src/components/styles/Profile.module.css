@@ -1,4 +1,6 @@
 .pill {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: #04070b;
   padding: 6px;
@@ -7,8 +9,12 @@
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   gap: 12px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
@@ -23,8 +29,14 @@
   color: var(--background-dark);
   background: #64f58d;
   border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   font-size: 24px;
   font-weight: 800;
@@ -41,8 +53,14 @@
   border-radius: 50px;
   outline: none;
   border: 0px solid transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   font-size: 24px;
 }
