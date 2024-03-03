@@ -151,6 +151,24 @@ const { title } = Astro.props;
         margin: 0px !important;
         border-top: 3px solid var(--side-active) !important;
       }
+
+      .markGrid:hover .markCard {
+        opacity: 0.2;
+      }
+
+      .markGrid:hover .markCard:hover {
+        opacity: 1;
+        box-shadow: 0px 0px 200px 300px rgba(4, 7, 11, 0.13);
+      }
+
+      .attTable:hover .attCard {
+        opacity: 0.2;
+      }
+
+      .attTable:hover .attCard:hover {
+        opacity: 1;
+      }
+
       @media only screen and (max-width: 440px) {
         body {
           padding: 8px !important;

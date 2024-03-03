@@ -15,7 +15,7 @@ const MarksCard = ({ name, marks }: Props) => {
 
   return (
     <>
-      {arr[0] ? <div className={styles.card}>
+      {arr[0] ? <div className={[styles.card, 'markCard'].join(' ')}>
         <h4 className={styles.title}>{name}</h4>
 
         <div className={styles.marks}>

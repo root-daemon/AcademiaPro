@@ -9,6 +9,7 @@ const Marks = () => {
   return (
     <>
       <div
+        className="markGrid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(16rem, 1fr))",

@@ -15,7 +15,7 @@ import styles from "./styles/Card.module.css";
 const Card = ({ percent, title, code, data, category }: Props) => {
   return (
     <>
-      <tr className={styles.card}>
+      <tr className={[styles.card, 'attCard'].join(' ')}>
         <td>
           <h4>{title}</h4>
         </td>
