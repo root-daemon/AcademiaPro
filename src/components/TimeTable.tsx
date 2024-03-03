@@ -53,11 +53,12 @@ const TimeTableComponent = () => {
     ) {
       const d = JSON.parse($data)["time-table"]
         ? $data
-        : localStorage.getItem("data") || "{}";
+        : localStorage.getItem("data");
 
-      setData(JSON.parse(d));
-
-      setTimeTable(JSON.parse(d)["time-table"][Number(day) - 1]);
+      if (d) {
+        setData(JSON.parse(d));
+        setTimeTable(JSON.parse(d)["time-table"][Number(day) - 1]);
+      }
     }
 
     fetch("https://academai-s-3.azurewebsites.net//course-user", {
@@ -136,7 +137,7 @@ const TimeTableComponent = () => {
 
   return (
     <>
-      {table ? (
+      {$data ? (
         <tr className={styles.tr}>
           {table.map((element: any, index: any) =>
             element ? (
