@@ -1,10 +1,10 @@
-import { dataJSON } from "../stores/DataStore";
-import { useStore } from "@nanostores/react";
-import Card from "./Card";
+import { useStore } from '@nanostores/react';
+import { dataJSON } from '../stores/DataStore';
+import Card from './Card';
 
-import styles from "./styles/Attendance.module.css";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import styles from './styles/Attendance.module.css';
 
 const AttendanceTable = () => {
   const $data = useStore(dataJSON);
@@ -14,7 +14,7 @@ const AttendanceTable = () => {
         <thead />
         <thead />
 
-        {$data && JSON.parse($data)["time-table"] ? (
+        {$data && JSON.parse($data)['time-table'] ? (
           JSON.parse($data).courses.map(
             (
               element: {
@@ -52,37 +52,37 @@ const AttendanceTable = () => {
         ) : (
           <>
             <Skeleton
-              style={{ width: "60vw", height: "64px", borderRadius: "12px" }}
+              style={{ width: '60vw', height: '64px', borderRadius: '12px' }}
             />
             <Skeleton
               style={{
-                width: "60vw",
-                height: "64px",
-                borderRadius: "12px",
+                width: '60vw',
+                height: '64px',
+                borderRadius: '12px',
                 opacity: 0.1,
               }}
             />
             <Skeleton
-              style={{ width: "60vw", height: "64px", borderRadius: "12px" }}
+              style={{ width: '60vw', height: '64px', borderRadius: '12px' }}
             />
 
             <Skeleton
               style={{
-                width: "60vw",
-                height: "64px",
-                borderRadius: "12px",
+                width: '60vw',
+                height: '64px',
+                borderRadius: '12px',
                 opacity: 0.1,
               }}
             />
 
             <Skeleton
-              style={{ width: "60vw", height: "64px", borderRadius: "12px" }}
+              style={{ width: '60vw', height: '64px', borderRadius: '12px' }}
             />
             <Skeleton
               style={{
-                width: "60vw",
-                height: "64px",
-                borderRadius: "12px",
+                width: '60vw',
+                height: '64px',
+                borderRadius: '12px',
                 opacity: 0.1,
               }}
             />
