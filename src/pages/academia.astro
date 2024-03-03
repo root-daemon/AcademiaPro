@@ -392,7 +392,7 @@ import Loader from "../components/Loader";
   });
 
   const home = document.querySelector(".h-button[href='#timetable']");
-  home?.addEventListener("click", (e) => {
+  home?.addEventListener("click", () => {
     // e.preventDefault()
     setTimeout(() => window.scroll(0, 0), 20);
   });
