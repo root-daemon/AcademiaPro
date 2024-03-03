@@ -6,10 +6,10 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.hero}>
           <svg
-            className={styles.bolt}
+            className={styles.book}
             xmlns="http://www.w3.org/2000/svg"
-            width="45"
-            height="36"
+            width="77"
+            height="59"
             viewBox="0 0 45 36"
             fill="none"
           >

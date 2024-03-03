@@ -5,16 +5,23 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 import styles from "../styles/Profile.module.css";
+import { useEffect, useState } from "react";
 
 export default function Profile() {
   const $data = useStore(dataJSON);
-  console.log(JSON.parse($data));
 
-  const name = JSON.parse($data)
-    .user.name.toLowerCase()
-    .split(" ")
-    .filter((a: string) => a.length != 1)
-    .join(" ");
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    if (JSON.parse($data).user)
+      setName(
+        JSON.parse($data)
+          .user.name.toLowerCase()
+          .split(" ")
+          .filter((a: string) => a.length != 1)
+          .join(" ")
+      );
+  }, [$data]);
 
   return (
     <>
