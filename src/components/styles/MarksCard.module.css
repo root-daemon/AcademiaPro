@@ -29,10 +29,10 @@
   display: -ms-flexbox;
   display: flex;
   gap: 8px;
-  padding: 2px 2px 2px 12px;
+  width: auto;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card td {
@@ -42,7 +42,7 @@
 .subjectCode {
   background: #d4d4d4;
   padding: 0px 10px;
-  font-family: "Inter";
+  font-family: 'Inter';
   font-weight: 700;
   color: #0a0d12;
   border-radius: 50px;

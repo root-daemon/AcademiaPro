@@ -1,15 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 
-import TimeTable from "../components/TimeTable";
-import AttendanceTable from "../components/Attendance";
-import Marks from "../components/Marks";
+import TimeTable from '../components/TimeTable';
+import AttendanceTable from '../components/Attendance';
+import Marks from '../components/Marks';
 
-import DayOrder from "../components/badges/DayOrder";
-import Hour from "../components/badges/Hour";
-import Profile from "../components/badges/Profile";
+import DayOrder from '../components/badges/DayOrder';
+import Hour from '../components/badges/Hour';
+import Profile from '../components/badges/Profile';
 
-import Loader from "../components/Loader";
+import Loader from '../components/Loader';
 ---
 
 <Layout title="Academia">
@@ -159,7 +159,10 @@ import Loader from "../components/Loader";
       -ms-flex-direction: column-reverse;
       flex-direction: column-reverse;
     }
-
+    .marks {
+      display: flex;
+      justify-content: center;
+    }
     .table {
       margin: 0px;
     }
@@ -312,7 +315,7 @@ import Loader from "../components/Loader";
       border-radius: 50px;
       width: 48px;
       height: 48px;
-      font-family: "Inter";
+      font-family: 'Inter';
       font-weight: 700;
       border: 2px solid #0a0d12;
       font-size: 14px;
@@ -428,26 +431,26 @@ import Loader from "../components/Loader";
 </Layout>
 <script>
   document.addEventListener(
-    "astro:page-load",
+    'astro:page-load',
     async function () {
-      if (!localStorage.getItem("access")) window.location.href = "/login";
+      if (!localStorage.getItem('access')) window.location.href = '/login';
 
-      const sections = document.querySelectorAll("section");
-      const menu_links = document.querySelectorAll(".h-button");
+      const sections = document.querySelectorAll('section');
+      const menu_links = document.querySelectorAll('.h-button');
 
-      const loader = document.querySelector<HTMLElement>(".loadScreen");
+      const loader = document.querySelector<HTMLElement>('.loadScreen');
       if (loader)
         setTimeout(() => {
-          loader.style.opacity = "0";
+          loader.style.opacity = '0';
           setTimeout(() => {
-            loader.style.display = "none";
+            loader.style.display = 'none';
           }, 100);
         }, 5000);
 
       const makeActive = (link: number) =>
-        menu_links[link].classList.add("active");
+        menu_links[link].classList.add('active');
       const removeActive = (link: number) =>
-        menu_links[link].classList.remove("active");
+        menu_links[link].classList.remove('active');
       const removeAllActive = () =>
         [...Array(sections.length).keys()].forEach((link) =>
           removeActive(link)
@@ -457,7 +460,7 @@ import Loader from "../components/Loader";
 
       let currentActive = 0;
 
-      window.addEventListener("scroll", () => {
+      window.addEventListener('scroll', () => {
         const current =
           sections.length -
           [...sections]
@@ -478,16 +481,16 @@ import Loader from "../components/Loader";
     false
   );
 
-  const btn = document.querySelector(".open");
-  const nav = document.querySelector(".nav");
+  const btn = document.querySelector('.open');
+  const nav = document.querySelector('.nav');
 
-  btn?.addEventListener("click", (e) => {
+  btn?.addEventListener('click', (e) => {
     e.preventDefault();
-    nav?.classList.toggle("viewable");
+    nav?.classList.toggle('viewable');
   });
 
   const home = document.querySelector(".h-button[href='#timetable']");
-  home?.addEventListener("click", () => {
+  home?.addEventListener('click', () => {
     // e.preventDefault()
     setTimeout(() => window.scroll(0, 0), 20);
   });
