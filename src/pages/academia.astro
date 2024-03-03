@@ -80,7 +80,7 @@ import Loader from "../components/Loader";
           </a>
         </div>
       </div>
-      <Profile client:only />
+      <Profile client:only="react" />
     </div>
 
     <button class="open" name="open-nav">
@@ -115,12 +115,12 @@ import Loader from "../components/Loader";
               <th class="text-uppercase">10</th>
             </tr>
           </thead>
-          <TimeTable client:only />
+          <TimeTable client:load />
         </table>
       </section>
       <section id="attendance" class="attendance">
         <h2 class="subtitle">Attendance</h2>
-        <AttendanceTable client:only />
+        <AttendanceTable client:idle />
       </section>
     </div>
   </main>
