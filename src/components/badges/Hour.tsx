@@ -6,7 +6,10 @@ import { dataJSON } from "../../stores/DataStore";
 
 import styles from '../styles/Badge.module.css'
 
-export default function DayOrder() {
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+
+export default function Hour() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
   const [hour, setHour] = useState<any>(0);
 
@@ -28,10 +31,19 @@ export default function DayOrder() {
 
   return (
     <>
-      {day &&
+      {day?.day_order && hour !== 0 ?
         (day.day_order.includes("No") ? null : (
           <span className={styles.badge}>{hour} hours</span>
-        ))}
+        )) : (
+          <Skeleton
+            style={{
+              width: "100px",
+              height: "30px",
+              borderRadius: "12px",
+              opacity: 0.6,
+            }}
+          />
+        )}
     </>
   );
 }

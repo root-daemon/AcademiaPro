@@ -1,9 +1,14 @@
 import { useStore } from "@nanostores/react";
+import { cleanStores } from "nanostores";
+
 import { useEffect, useState } from "react";
 import { dayOrder } from "../stores/DayOrder";
 import { dataJSON } from "../stores/DataStore";
 
-import styles from './styles/Timetable.module.css'
+import styles from "./styles/Timetable.module.css";
+
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const TimeTableComponent = () => {
   const [day, setDay] = useState<string | number | null>(1);
@@ -26,12 +31,18 @@ const TimeTableComponent = () => {
           : JSON.parse($dayOrder).day_order[0]
       );
     }
+
+    window.addEventListener("beforeunload", unload);
   }, []);
+
+  const unload = () => {
+    cleanStores(dataJSON);
+  };
 
   useEffect(() => {
     if (JSON.parse($data)?.message == "Token is invalid !!") {
       localStorage.removeItem("access");
-      dataJSON.set('{}')
+      dataJSON.set("{}");
       window.location.href = "/login";
     }
 
@@ -48,7 +59,7 @@ const TimeTableComponent = () => {
 
       setTimeTable(JSON.parse(d)["time-table"][Number(day) - 1]);
     }
-    
+
     fetch("https://academai-s-3.azurewebsites.net//course-user", {
       method: "POST",
       headers: {
@@ -71,7 +82,6 @@ const TimeTableComponent = () => {
   }, [day]);
 
   useEffect(() => {
-
     if (data?.message == "Token is invalid !!") {
       localStorage.removeItem("access");
       window.location.href = "/login";
@@ -128,22 +138,32 @@ const TimeTableComponent = () => {
 
   return (
     <>
-      <tr className={styles.tr}>
-        {table.map((element: any, index: any) =>
-          element ? (
-            <td
-              key={index}
-              className={String(element).includes("Theory") ? styles.theory : styles.lab}
-            >
-              {String(element).split("(")[0]}
-            </td>
-          ) : (
-            <td key={index} />
-          )
-        )}
-      </tr>
-
-
+      {table ? (
+        <tr className={styles.tr}>
+          {table.map((element: any, index: any) =>
+            element ? (
+              <td
+                key={index}
+                className={
+                  String(element).includes("Theory")
+                    ? styles.theory
+                    : styles.lab
+                }
+              >
+                {String(element).split("(")[0]}
+              </td>
+            ) : (
+              <td key={index} />
+            )
+          )}
+        </tr>
+      ) : (
+        <>
+          <Skeleton
+            style={{ width: "100%", height: "90px", borderRadius: "12px" }}
+          />
+        </>
+      )}
     </>
   );
 };
