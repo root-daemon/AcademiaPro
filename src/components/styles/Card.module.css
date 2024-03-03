@@ -20,6 +20,7 @@
   background-color: #04070b;
   border-radius: 50px;
   display: -webkit-box;
+  user-select: none;
   display: -ms-flexbox;
   display: flex;
   gap: 8px;
