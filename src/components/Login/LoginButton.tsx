@@ -1,4 +1,4 @@
-import type { MouseEventHandler } from 'react';
+import type { MouseEventHandler } from "react";
 
 export default function LoginButton({
   error,
@@ -10,11 +10,12 @@ export default function LoginButton({
   return error === -1 ? (
     <button
       style={{
-        border: '1px solid var(--yellow)',
-        backgroundColor: '#ffca630e !important',
-        color: 'var(--yellow) !important',
+        border: "1px solid var(--yellow)",
+        backgroundColor: "#ffca630e !important",
+        color: "var(--yellow) !important",
       }}
-      disabled>
+      disabled
+    >
       Logging in
     </button>
   ) : (

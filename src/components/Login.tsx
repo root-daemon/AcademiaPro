@@ -11,7 +11,7 @@ export default function Login() {
   const [error, setError] = useState(0);
 
   function push() {
-    console.log('eeee')
+    console.log("eeee");
     setError(-1);
     fetch("https://academai-s-3.azurewebsites.net//login", {
       method: "POST",
@@ -38,7 +38,7 @@ export default function Login() {
           setError(1);
         }
       });
-  };
+  }
 
   return (
     <main className={styles.main}>
@@ -100,7 +100,9 @@ export default function Login() {
           </div>
           <p className={styles.credits}>
             Made by <a href="https://marban.is-a.dev">Marban</a> and{" "}
-            <a href="#">root-daemon</a>
+            <a href="https://www.linkedin.com/in/srivishal-sivasubramanian-1a09b9240/">
+              root-daemon
+            </a>
           </p>
         </div>
       </div>

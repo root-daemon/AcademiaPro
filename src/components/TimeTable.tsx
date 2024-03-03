@@ -124,10 +124,8 @@ const TimeTableComponent = () => {
       const startIndex = startingTimesSlot.indexOf(startTime);
       const endIndex = endingTimesSlot.indexOf(endTime);
 
-      // Ensure the endIndex is not out of bounds
       const safeEndIndex = Math.min(endIndex, startingTimesSlot.length - 1);
 
-      // Fill the slots from startIndex to safeEndIndex
       for (let i = startIndex; i <= safeEndIndex; i++) {
         timeTableArr[i] = timetable[usedTime];
       }

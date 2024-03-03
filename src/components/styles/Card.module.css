@@ -100,7 +100,7 @@
     -moz-border-radius: 24px 0 0 0 !important;
     -ms-border-radius: 24px 0 0 0 !important;
     -o-border-radius: 24px 0 0 0 !important;
-}
+  }
 
   .card td:nth-of-type(2) {
     align-items: flex-start;
@@ -110,7 +110,7 @@
     -moz-border-radius: 0 24px 0 0 !important;
     -ms-border-radius: 0 24px 0 0 !important;
     -o-border-radius: 0 24px 0 0 !important;
-}
+  }
 
   .card td:nth-of-type(4) {
     border-radius: 0 0 24px 0 !important;
@@ -118,7 +118,7 @@
     -moz-border-radius: 0 0 24px 0 !important;
     -ms-border-radius: 0 0 24px 0 !important;
     -o-border-radius: 0 0 24px 0 !important;
-}
+  }
 
   .card td:nth-of-type(3) {
     border-radius: 0 0 0 24px !important;
@@ -126,5 +126,5 @@
     -moz-border-radius: 0 0 0 24px !important;
     -ms-border-radius: 0 0 0 24px !important;
     -o-border-radius: 0 0 0 24px !important;
-}
+  }
 }

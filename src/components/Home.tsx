@@ -37,9 +37,7 @@ export default function Home() {
             <ul>
               <li>Mobile-First approach</li>
               <li>Faster and Elegant</li>
-              <li>
-              Open source
-              </li>
+              <li>Open source</li>
               <li>Better User-Experience</li>
               <li>Not clumsy</li>
               <li>Ad-free</li>
@@ -48,14 +46,15 @@ export default function Home() {
           <div>
             <h3 style={{ opacity: 0.9, marginBottom: "8px" }}>Idea behind</h3>
             <p>
-              Academia is a mess. we scraped it so, we know it. lol. And we got SRM
-              Check but its bloated with useless crap and ads. So here we are with our take
+              Academia is a mess. we scraped it so, we know it. lol. And we got
+              SRM Check but its bloated with useless crap and ads. So here we
+              are with our take
             </p>
           </div>
           <blockquote className={styles.blockquotewarn}>
             <p>
-              We scrape the information from SRM Academia, This website acts as a
-              wrapper and does not store any information whatsoever!
+              We scrape the information from SRM Academia, This website acts as
+              a wrapper and does not store any information whatsoever!
             </p>
           </blockquote>
         </div>

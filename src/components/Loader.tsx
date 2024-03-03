@@ -1,20 +1,19 @@
 // NextJS Stuff
-import React from 'react';
+import React from "react";
 
 // Styles
-import styles from './styles/Loader.module.css';
-
+import styles from "./styles/Loader.module.css";
 
 const Loader: React.FC = () => {
-
   return (
-    <div className={[styles.loader, 'loadScreen'].join(' ')}>
+    <div className={[styles.loader, "loadScreen"].join(" ")}>
       <svg
         className={styles.loadingRing}
         viewBox="0 0 128 128"
         width="128px"
         height="128px"
-        xmlns="http://www.w3.org/2000/svg">
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <defs>
           <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0%" stopColor="var(--green)" />
@@ -43,9 +42,7 @@ const Loader: React.FC = () => {
           strokeDashoffset="10"
         />
       </svg>
-      <h2 className={styles.loadTitle}>
-        Loading..
-      </h2>
+      <h2 className={styles.loadTitle}>Loading..</h2>
     </div>
   );
 };
