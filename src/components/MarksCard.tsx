@@ -10,10 +10,8 @@ const MarksCard = ({ name, marks }: Props) => {
   const [arr, setArr] = useState<any[]>([])
 
   useEffect(() => {
-
     setArr([...marks])
-    console.log(marks)
-  }, [marks]); // Added marks to the dependency array
+  }, [marks]); 
 
   return (
     <>
