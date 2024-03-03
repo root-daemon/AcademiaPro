@@ -11,7 +11,6 @@ export default function Login() {
   const [error, setError] = useState(0);
 
   function push() {
-    console.log("eeee");
     setError(-1);
     fetch("https://academai-s-3.azurewebsites.net//login", {
       method: "POST",
