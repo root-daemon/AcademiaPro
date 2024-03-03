@@ -38,8 +38,21 @@ const Card = ({ percent, title, code, data, category }: Props) => {
   return (
     <>
       <tr className={[styles.card, 'attCard'].join(' ')}>
-        <td>
-          <h4>{title}</h4>
+        <td className="row" style={{ height: '10vh' }}>
+          <div className="col-6">
+            <h4>{title}</h4>
+          </div>
+          <div className="col-6">
+            <div
+              className={
+                category == 'Theory'
+                  ? styles.circle
+                  : [styles.circle, styles.greenCircle].join(' ')
+              }
+            >
+              {' '}
+            </div>
+          </div>
         </td>
         <td>
           <span className={styles.margin}>
