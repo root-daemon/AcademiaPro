@@ -11,9 +11,10 @@ const Marks = () => {
       <div
         className="markGrid"
         style={{
+          borderRadius: 34,
+          background: 'var(--background)',
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(16rem, 1fr))",
-          gap: 12,
           gridTemplateRows: "min-content",
         }}
       >
