@@ -37,7 +37,7 @@ const Card = ({ percent, title, code, data, category }: Props) => {
   };
   return (
     <>
-      <tr className={[styles.card, "attCard"].join(" ")}>
+      <tr className={[styles.card, "attCard"].join(" ")} title={code}>
         <td style={{ height: "10vh" }}>
           <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
             <h4>{title}</h4>
