@@ -78,8 +78,9 @@ const TimeTableComponent = () => {
           setData(JSON.parse(res));
           localStorage.setItem("data", res);
         }
-        setTimeTable((data['time-table'])[Number(day) - 1]);
-      });
+        setTimeTable(data["time-table"][Number(day) - 1]);
+      })
+      .catch(() => {});
   }, [day]);
 
   useEffect(() => {
@@ -136,7 +137,7 @@ const TimeTableComponent = () => {
   }, [timetable]);
 
   return (
-    <>
+    <tbody>
       {$data ? (
         <tr className={styles.tr}>
           {table.map((element: any, index: any) =>
@@ -163,7 +164,7 @@ const TimeTableComponent = () => {
           />
         </>
       )}
-    </>
+    </tbody>
   );
 };
 

@@ -13,6 +13,7 @@ const AttendanceTable = () => {
       <table className={[styles.attr, 'attTable'].join(' ')}>
         <thead />
         <thead />
+        <tbody>
 
         {$data && JSON.parse($data)["time-table"] ? (
           JSON.parse($data).courses.map(
@@ -88,6 +89,7 @@ const AttendanceTable = () => {
             />
           </>
         )}
+        </tbody>
       </table>
     </>
   );

@@ -16,6 +16,7 @@ const Marks = () => {
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(16rem, 1fr))",
           gridTemplateRows: "min-content",
+          marginBottom: 32
         }}
       >
         {JSON.parse($data)["internal_marks"] ? (
