@@ -18,7 +18,7 @@ import Loader from "../components/Loader";
     <div class="nav">
       <div class="navbox">
         <h1>Academia</h1>
-        <div style="display: flex; gap: 8px">
+        <div style="display: flex; gap: 12px">
           {
             DayOrder && Hour && (
               <>
@@ -132,6 +132,10 @@ import Loader from "../components/Loader";
     </div>
   </main>
   <style>
+    body {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
     .root {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -168,6 +172,7 @@ import Loader from "../components/Loader";
 
     .table > :not(caption) > * > * {
       padding: 0.2rem 0.5rem;
+      width: 10%;
     }
 
     .table thead tr {
@@ -270,7 +275,7 @@ import Loader from "../components/Loader";
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
-      gap: 22px;
+      gap: 18px;
     }
 
     .nav h1 {
@@ -343,7 +348,10 @@ import Loader from "../components/Loader";
         transform: translateX(0px);
       }
     }
-    @media only screen and (max-width: 999px) {
+    @media only screen and (max-width: 1015px) {
+      body {
+        padding-left: 12px !important;
+      }
       .nav {
         -webkit-transform: translateX(-200px);
         -ms-transform: translateX(-200px);
@@ -378,7 +386,7 @@ import Loader from "../components/Loader";
         -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
         flex-direction: row-reverse;
-        gap: 8px;
+        gap: 12px;
       }
 
       .table tr {
