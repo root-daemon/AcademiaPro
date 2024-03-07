@@ -30,6 +30,7 @@ const Marks = () => {
             ) => (
               <MarksCard
                 key={index} 
+                code={element.subject_code}
                 name={element.subject_name}
                 marks={element.internal_marks[0]}
               />

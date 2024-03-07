@@ -78,7 +78,7 @@ const TimeTableComponent = () => {
           setData(JSON.parse(res));
           localStorage.setItem("data", res);
         }
-        setTimeTable(data.timetable[Number(day) - 1]);
+        setTimeTable((data['time-table'])[Number(day) - 1]);
       });
   }, [day]);
 

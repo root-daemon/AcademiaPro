@@ -4,9 +4,10 @@ import styles from "./styles/MarksCard.module.css";
 interface Props {
   name: string;
   marks: any[];
+  code: string;
 }
 
-const MarksCard = ({ name, marks }: Props) => {
+const MarksCard = ({ name, marks, code }: Props) => {
   const [arr, setArr] = useState<any[]>([])
 
   useEffect(() => {
@@ -15,7 +16,7 @@ const MarksCard = ({ name, marks }: Props) => {
 
   return (
     <>
-      {arr[0] ? <div className={[styles.card, 'markCard'].join(' ')}>
+      {arr[0] ? <div title={code} className={[styles.card, 'markCard'].join(' ')}>
         <h4 className={styles.title}>{name}</h4>
 
         <div className={styles.marks}>
