@@ -4,7 +4,7 @@ import { dayOrder } from "../../stores/DayOrder";
 import { useStore } from "@nanostores/react";
 import { dataJSON } from "../../stores/DataStore";
 
-import styles from '../styles/Badge.module.css'
+import styles from "../styles/Badge.module.css";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -19,31 +19,40 @@ export default function Hour() {
   useEffect(() => {
     if (JSON.parse($dayOrder).day_order) setDay(JSON.parse($dayOrder));
 
-    if (JSON.parse($data)['time-table'])
-      setHour(
-        Object.values(
+    setTimeout(() => {
+      if (JSON.parse($data)["time-table"] && JSON.parse($dayOrder).day_order) {
+        console.log(
           JSON.parse($data)["time-table"][
             Number(JSON.parse($dayOrder).day_order[0]) - 1
           ]
-        ).length
-      );
+        );
+        setHour(
+          Object.values(
+            JSON.parse($data)["time-table"][
+              Number(JSON.parse($dayOrder).day_order[0]) - 1
+            ]
+          ).length
+        );
+      }
+    }, 100);
   }, [$dayOrder, $data]);
 
   return (
     <>
-      {day?.day_order && hour !== 0 ?
-        (day.day_order.includes("No") ? null : (
+      {day?.day_order && hour !== 0 ? (
+        day.day_order.includes("No") ? null : (
           <span className={styles.badge}>{hour} hours</span>
-        )) : (
-          <Skeleton
-            style={{
-              width: "100px",
-              height: "30px",
-              borderRadius: "12px",
-              opacity: 0.6,
-            }}
-          />
-        )}
+        )
+      ) : (
+        <Skeleton
+          style={{
+            width: "100px",
+            height: "30px",
+            borderRadius: "12px",
+            opacity: 0.6,
+          }}
+        />
+      )}
     </>
   );
 }

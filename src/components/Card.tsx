@@ -7,11 +7,11 @@ interface Props {
     absent: number;
     total: number;
   };
-  category: 'Theory' | 'Practical' | string;
+  category: "Theory" | "Practical" | string;
 }
 
-import { useEffect, useState } from 'react';
-import styles from './styles/Card.module.css';
+import { useEffect, useState } from "react";
+import styles from "./styles/Card.module.css";
 
 const Card = ({ percent, title, code, data, category }: Props) => {
   const [margin, setMargin] = useState(0);
@@ -37,26 +37,24 @@ const Card = ({ percent, title, code, data, category }: Props) => {
   };
   return (
     <>
-      <tr className={[styles.card, 'attCard'].join(' ')}>
-        <td className="row" style={{ height: '10vh' }}>
-          <div className="col-6">
+      <tr className={[styles.card, "attCard"].join(" ")}>
+        <td style={{ height: "10vh" }}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
             <h4>{title}</h4>
-          </div>
-          <div className="col-6">
+
             <div
               className={
-                category == 'Theory'
+                category == "Theory"
                   ? styles.circle
-                  : [styles.circle, styles.greenCircle].join(' ')
+                  : [styles.circle, styles.greenCircle].join(" ")
               }
             >
-              {' '}
             </div>
           </div>
         </td>
         <td>
           <span className={styles.margin}>
-            Margin:{' '}
+            Margin:{" "}
             <span className={margin > 0 ? styles.blue : styles.red}>
               {margin}
             </span>
@@ -65,10 +63,10 @@ const Card = ({ percent, title, code, data, category }: Props) => {
 
         <td>
           <div className={styles.attendance}>
-            <span className={[styles.present, styles.green].join(' ')}>
+            <span className={[styles.present, styles.green].join(" ")}>
               {data.present}
             </span>
-            <span className={[styles.absent, styles.red].join(' ')}>
+            <span className={[styles.absent, styles.red].join(" ")}>
               {data.absent}
             </span>
             <span className={styles.total}>{data.total}</span>
@@ -77,9 +75,9 @@ const Card = ({ percent, title, code, data, category }: Props) => {
         <td>
           <h3
             className={
-              Number(percent.split('.')[0]) === 100
+              Number(percent.split(".")[0]) === 100
                 ? styles.green
-                : Number(percent.split('.')[0]) < 75
+                : Number(percent.split(".")[0]) < 75
                 ? styles.red
                 : styles.percent
             }
