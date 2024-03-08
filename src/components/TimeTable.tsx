@@ -87,7 +87,6 @@ const TimeTableComponent = () => {
       localStorage.removeItem("access");
       window.location.href = "/login";
     } else if(data['time-table']) {
-      console.log(data)
       setTimeTable((data["time-table"])[Number(day) - 1]);
     }
   }, [data]);
