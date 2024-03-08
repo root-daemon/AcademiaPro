@@ -10,7 +10,7 @@ const AttendanceTable = () => {
   const $data = useStore(dataJSON);
   return (
     <>
-      <table >
+      <table style={{width: '-webkit-fill-available'}} >
         <thead />
         <thead />
         <tbody className={[styles.attr, 'attTable'].join(' ')}>
