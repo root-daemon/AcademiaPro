@@ -81,6 +81,7 @@
 }
 
 .lefty {
+  position: relative;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,6 +96,7 @@
   justify-content: space-between;
   padding-bottom: 8px;
 }
+
 .titles {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -192,7 +194,7 @@
 
 .credits {
   position: absolute;
-  bottom: 6px;
+  bottom: 16px;
   color: #adadaf;
   font-size: 14px;
   width: 100vw;
@@ -225,10 +227,30 @@
   }
 }
 
+.lefty button::after {
+  content: "NEW";
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -12px;
+  margin-right: -24px;
+  font-size: 14px;
+  background: var(--green);
+  padding: 0px 6px;
+  border-radius: 50px;
+  color: var(--background-darker);
+  font-weight: 800;
+}
 @media only screen and (max-width: 620px) {
   .lefty button {
-    display: none;
+    position: absolute;
+    bottom: 69px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--background-dark);
   }
+
   .login {
     display: -webkit-box;
     display: -ms-flexbox;
