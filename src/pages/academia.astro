@@ -15,6 +15,7 @@ import Loader from "../components/Loader";
 <Layout title="Academia">
   <Loader />
   <main class="root">
+    <div class="nav-hider"></div>
     <div class="nav">
       <div class="navbox">
         <h1>Academia</h1>
@@ -267,6 +268,10 @@ import Loader from "../components/Loader";
       transition: 0.2s cubic-bezier(0.65, 0.35, 0.17, 1);
     }
 
+    .nav-hider {
+      display: none;
+    }
+
     .navbox {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -361,9 +366,22 @@ import Loader from "../components/Loader";
         height: 100vh;
         top: 0;
         left: 0;
+        z-index: 5;
       }
 
-      .viewable {
+      .nav-hider.viewable {
+        z-index: 2;
+
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 98vw;
+        background: rgba(0,0,0,0.05);
+      }
+
+      .nav.viewable {
         -webkit-box-shadow: 20px 0px 200px 120px rgb(4 7 11);
         box-shadow: 20px 0px 200px 120px rgb(4 7 11);
         display: -webkit-box;
@@ -485,10 +503,18 @@ import Loader from "../components/Loader";
 
   const btn = document.querySelector(".open");
   const nav = document.querySelector(".nav");
+  const navCloser = document.querySelector(".nav-hider");
 
   btn?.addEventListener("click", (e) => {
     e.preventDefault();
     nav?.classList.toggle("viewable");
+    navCloser?.classList.toggle("viewable");
+  });
+
+  navCloser?.addEventListener("click", () => {
+    nav?.classList.remove("viewable");
+    navCloser?.classList.remove("viewable");
+
   });
 
   const home = document.querySelector(".h-button[href='#timetable']");
