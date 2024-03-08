@@ -53,12 +53,12 @@ const Card = ({ percent, title, code, data, category }: Props) => {
           </div>
         </td>
         <td>
-          <span className={styles.margin}>
+          <p className={styles.margin}>
             Margin:{" "}
             <span className={margin > 0 ? styles.blue : styles.red}>
               {margin}
             </span>
-          </span>
+          </p>
         </td>
 
         <td>

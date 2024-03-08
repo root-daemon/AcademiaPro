@@ -10,6 +10,31 @@ import styles from "./styles/Timetable.module.css";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
+const startingTimesSlot = [
+  "08:00",
+  "08:50",
+  "09:45",
+  "10:40",
+  "11:35",
+  "12:30",
+  "13:25",
+  "14:20",
+  "15:10",
+  "16:00",
+];
+const endingTimesSlot = [
+  "08:50",
+  "09:40",
+  "10:35",
+  "11:30",
+  "12:25",
+  "13:20",
+  "14:15",
+  "15:10",
+  "16:00",
+  "16:50",
+];
+
 const TimeTableComponent = () => {
   const [day, setDay] = useState<string | number | null>(1);
   const [data, setData] = useState<any>({});
@@ -86,40 +111,16 @@ const TimeTableComponent = () => {
     if (data?.message == "Token is invalid !!") {
       localStorage.removeItem("access");
       window.location.href = "/login";
-    } else if(data['time-table']) {
-      setTimeTable((data["time-table"])[Number(day) - 1]);
+    } else if (data["time-table"]) {
+      setTimeTable(data["time-table"][Number(day) - 1]);
     }
   }, [data]);
 
-  const [table, setTable] = useState<any[] | any>([]);
+  const [table, setTable] = useState<any[] | any>(null);
 
   useEffect(() => {
     const timeTableArr = Array(10).fill(null);
     const usedTimes = Object.keys(timetable).filter((key) => key);
-    const startingTimesSlot = [
-      "08:00",
-      "08:50",
-      "09:45",
-      "10:40",
-      "11:35",
-      "12:30",
-      "13:25",
-      "14:20",
-      "15:10",
-      "16:00",
-    ];
-    const endingTimesSlot = [
-      "08:50",
-      "09:40",
-      "10:35",
-      "11:30",
-      "12:25",
-      "13:20",
-      "14:15",
-      "15:10",
-      "16:00",
-      "16:50",
-    ];
 
     usedTimes.forEach((usedTime) => {
       const startTime = usedTime.slice(0, 5);
@@ -138,34 +139,30 @@ const TimeTableComponent = () => {
   }, [timetable]);
 
   return (
-    <tbody className={styles.body}>
-      {$data ? (
+    <>
+      <tbody className={styles.body}>
         <tr className={styles.tr}>
-          {table.map((element: any, index: any) =>
-            element ? (
-              <td
-                key={index}
-                className={
-                  String(element).includes("Theory")
-                    ? styles.theory
-                    : styles.lab
-                }
-              >
-                {String(element).split("(")[0]}
-              </td>
-            ) : (
-              <td key={index} />
-            )
-          )}
+          {$data &&
+            table &&
+            table.map((element: any, index: any) =>
+              element ? (
+                <td
+                  key={index}
+                  className={
+                    String(element).includes("Theory")
+                      ? styles.theory
+                      : styles.lab
+                  }
+                >
+                  {String(element).split("(")[0]}
+                </td>
+              ) : (
+                <td key={index} />
+              )
+            )}
         </tr>
-      ) : (
-        <>
-          <Skeleton
-            style={{ width: "100%", height: "90px", borderRadius: "12px" }}
-          />
-        </>
-      )}
-    </tbody>
+      </tbody>
+    </>
   );
 };
 
