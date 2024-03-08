@@ -139,7 +139,7 @@ const TimeTableComponent = () => {
   }, [timetable]);
 
   return (
-    <tbody>
+    <tbody className={styles.body}>
       {$data ? (
         <tr className={styles.tr}>
           {table.map((element: any, index: any) =>

@@ -41,6 +41,9 @@
 }
 
 @media only screen and (max-width: 690px) {
+  .body {
+    width: -webkit-fill-available;
+  }
   .tr {
     display: -webkit-box;
     display: -ms-flexbox;
