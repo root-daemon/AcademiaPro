@@ -32,20 +32,6 @@ const TimeTableComponent = () => {
       );
     }
 
-    window.addEventListener("beforeunload", unload);
-  }, []);
-
-  const unload = () => {
-    cleanStores(dataJSON);
-  };
-
-  useEffect(() => {
-    if (JSON.parse($data)?.message == "Token is invalid !!") {
-      localStorage.removeItem("access");
-      dataJSON.set("{}");
-      window.location.href = "/login";
-    }
-
     if (
       JSON.parse($data)["time-table"] ||
       (localStorage.getItem("data") &&
@@ -60,7 +46,6 @@ const TimeTableComponent = () => {
         setTimeTable(JSON.parse(d)["time-table"][Number(day) - 1]);
       }
     }
-
     fetch("https://academai-s-3.azurewebsites.net//course-user", {
       method: "POST",
       headers: {
@@ -73,20 +58,37 @@ const TimeTableComponent = () => {
     })
       .then((r) => r.text())
       .then((res) => {
+        if (JSON.parse(res)?.message) return localStorage.clear();
         dataJSON.set(res);
         if (data !== JSON.parse(res)) {
           setData(JSON.parse(res));
           localStorage.setItem("data", res);
         }
-        setTimeTable(data["time-table"][Number(day) - 1]);
       })
       .catch(() => {});
+
+    window.addEventListener("beforeunload", unload);
+  }, []);
+
+  const unload = () => {
+    cleanStores(dataJSON);
+  };
+
+  useEffect(() => {
+    if (JSON.parse($data)?.message == "Token is invalid !!") {
+      localStorage.removeItem("access");
+      dataJSON.set("{}");
+      window.location.href = "/login";
+    }
   }, [day]);
 
   useEffect(() => {
     if (data?.message == "Token is invalid !!") {
       localStorage.removeItem("access");
       window.location.href = "/login";
+    } else if(data['time-table']) {
+      console.log(data)
+      setTimeTable((data["time-table"])[Number(day) - 1]);
     }
   }, [data]);
 

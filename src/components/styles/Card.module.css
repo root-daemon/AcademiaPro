@@ -35,6 +35,10 @@
   justify-content: space-between;
 }
 
+.attendance .red {
+  font-size: initial;
+}
+
 .card td {
   padding: 12px 16px;
 }
