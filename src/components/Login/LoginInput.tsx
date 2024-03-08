@@ -15,9 +15,7 @@ export default function LoginInput({
     return (
       <input
         value={uid}
-        maxLength={12}
-        pattern="[0-9]{12}"
-        minLength={12}
+        maxLength={20}
         style={
           error === 1
             ? {
