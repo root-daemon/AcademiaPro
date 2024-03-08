@@ -19,7 +19,7 @@ export const manifest: Partial<ManifestOptions> = {
 
   theme_color: "#D4D4D4",
   background_color: "#0a0d12", // Change this to your background color.
-  display: "minimal-ui",
+  display: "standalone",
   icons: [
     {
       src: "/public/favicon.svg",
