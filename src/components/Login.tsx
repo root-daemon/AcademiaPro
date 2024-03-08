@@ -71,7 +71,7 @@ export default function Login() {
             </button>
           </div>
 
-          <div className={styles.inputs}>
+          <form className={styles.inputs}>
             <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
               <LoginInput
                 onChange={(e) => {
@@ -96,7 +96,7 @@ export default function Login() {
             <div style={{ display: "flex", gap: 12 }}>
               <LoginButton error={error} onClick={push} />
             </div>
-          </div>
+          </form>
           <p className={styles.credits}>
             Made by <a href="https://marban.is-a.dev">Marban</a> and{" "}
             <a href="https://www.linkedin.com/in/srivishal-sivasubramanian-1a09b9240/">

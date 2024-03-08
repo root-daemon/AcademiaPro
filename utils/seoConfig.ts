@@ -1,7 +1,7 @@
 import type { ManifestOptions } from "vite-plugin-pwa";
 
 export const seoConfig = {
-  baseURL: "https://academiapro.vercel.app",
+  baseURL: "https://academia-pro.vercel.app",
   description: "University data, beautifully presented at your fingertips",
   type: "website",
   image: {

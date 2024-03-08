@@ -9,6 +9,7 @@ export default function LoginButton({
 }) {
   return error === -1 ? (
     <button
+      type="submit"
       style={{
         border: "1px solid var(--yellow)",
         backgroundColor: "#ffca630e !important",
