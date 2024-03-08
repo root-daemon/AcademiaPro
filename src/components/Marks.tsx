@@ -1,5 +1,4 @@
 import { useStore } from "@nanostores/react";
-import { useEffect } from "react";
 import { dataJSON } from "../stores/DataStore";
 import MarksCard from "./MarksCard";
 

@@ -19,7 +19,7 @@ export default defineConfig({
         workbox: {
           globDirectory: "dist",
           globPatterns: [
-            "**/*.{js,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico}",
+            "**/*.{ts,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,tsx,js}",
           ],
   
           navigateFallback: null,

@@ -13,8 +13,6 @@ import "react-loading-skeleton/dist/skeleton.css";
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
 
-  const $dayOrder = useStore(dayOrder);
-
   useEffect(() => {
     fetch("https://academai-s-3.azurewebsites.net//do", {
       method: "POST",

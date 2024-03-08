@@ -7,9 +7,6 @@ import { dataJSON } from "../stores/DataStore";
 
 import styles from "./styles/Timetable.module.css";
 
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
-
 const startingTimesSlot = [
   "08:00",
   "08:50",
