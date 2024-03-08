@@ -1,4 +1,4 @@
-import styles from "./styles/Home.module.css";
+import styles from './styles/Home.module.css';
 
 export default function Home() {
   return (
@@ -31,7 +31,7 @@ export default function Home() {
 
         <div className={styles.features}>
           <div>
-            <h3 style={{ opacity: 0.9, marginBottom: "8px" }}>
+            <h3 style={{ opacity: 0.9, marginBottom: '8px' }}>
               Why Academia ?
             </h3>
             <ul>
@@ -44,7 +44,7 @@ export default function Home() {
             </ul>
           </div>
           <div>
-            <h3 style={{ opacity: 0.9, marginBottom: "8px" }}>Idea behind</h3>
+            <h3 style={{ opacity: 0.9, marginBottom: '8px' }}>Idea behind</h3>
             <p>
               Academia is a mess. we scraped it so, we know it. lol. And we got
               SRM Check but its bloated with useless crap and ads. So here we
@@ -55,6 +55,10 @@ export default function Home() {
             <p>
               We scrape the information from SRM Academia, This website acts as
               a wrapper and does not store any information whatsoever!
+            </p>
+            <p>
+              Also we are'nt responsible for the slow loading times, blame the
+              srm servers, we tried our best
             </p>
           </blockquote>
         </div>
