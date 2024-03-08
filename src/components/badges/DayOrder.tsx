@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { useStore } from "@nanostores/react";
 import { dayOrder } from "../../stores/DayOrder";
 
 import styles from "../styles/Badge.module.css";

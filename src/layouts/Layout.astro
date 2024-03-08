@@ -21,8 +21,10 @@ import { SEO } from "astro-seo";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <script>
-    </script>
+
+		<script is:inline src="/registerSW.js"></script>
+		<link rel="manifest" href="/manifest.webmanifest" />
+
     <SEO
       title={title}
       description="University data, beautifully presented at your fingertips | Built for SRM University"
@@ -227,5 +229,8 @@ import { SEO } from "astro-seo";
         }
       }
     </style>
+
+    <script>
+		</script>
   </body>
 </html>
