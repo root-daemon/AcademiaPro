@@ -10,10 +10,10 @@ const AttendanceTable = () => {
   const $data = useStore(dataJSON);
   return (
     <>
-      <table className={[styles.attr, 'attTable'].join(' ')}>
+      <table >
         <thead />
         <thead />
-        <tbody>
+        <tbody className={[styles.attr, 'attTable'].join(' ')}>
 
         {$data && JSON.parse($data)["time-table"] ? (
           JSON.parse($data).courses.map(

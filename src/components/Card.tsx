@@ -39,7 +39,7 @@ const Card = ({ percent, title, code, data, category }: Props) => {
     <>
       <tr className={[styles.card, "attCard"].join(" ")} title={code}>
         <td style={{ height: "10vh" }}>
-          <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 8, justifyContent: 'space-between', width: '-webkit-fill-available'}}>
             <h4>{title}</h4>
 
             <div
@@ -82,7 +82,7 @@ const Card = ({ percent, title, code, data, category }: Props) => {
                 : styles.percent
             }
           >
-            {percent}%
+            {Number(percent.split(".")[0]) === 100 ? 100 : percent}%
           </h3>
         </td>
       </tr>
