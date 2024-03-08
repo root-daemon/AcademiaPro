@@ -81,7 +81,6 @@
 }
 
 .lefty {
-  position: relative;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,6 +94,10 @@
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding-bottom: 8px;
+}
+
+.lefty button {
+  position: relative;
 }
 
 .titles {
