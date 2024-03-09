@@ -136,9 +136,14 @@ const TimeTableComponent = () => {
     setTable(timeTableArr);
   }, [timetable]);
 
+  function openGen() {
+    window.location.href =
+      "/timetable.png?key=" + encodeURIComponent(getCookie("token") as string);
+  }
+
   return (
     <>
-      <tbody className={styles.body}>
+      <tbody onClick={() => openGen()} className={styles.body}>
         <tr className={styles.tr}>
           {$data &&
             table &&

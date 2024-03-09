@@ -16,6 +16,7 @@
     "@nanostores/react": "^0.7.2",
     "@types/react": "^18.2.59",
     "@types/react-dom": "^18.2.18",
+    "@vercel/og": "^0.6.2",
     "astro": "^4.3.2",
     "astro-compress": "^2.2.11",
     "astro-meta-tags": "^0.2.1",
