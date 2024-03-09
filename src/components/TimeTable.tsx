@@ -138,7 +138,7 @@ const TimeTableComponent = () => {
 
   function openGen() {
     window.location.href =
-      "/timetable.png?key=" + encodeURIComponent(getCookie("token") as string);
+      "/timetable.png"
   }
 
   return (
