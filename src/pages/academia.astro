@@ -101,7 +101,7 @@ import Loader from "../components/Loader";
     </button>
 
     <div class="content">
-      <h2 style="margin-top: 0px;" class="subtitle">Timetable</h2>
+      <h2 style="margin-top: 0px; display: flex; align-items: center; gap: 12px;" class="subtitle">Timetable <a href="/timetable.png" class="download">View all</a></h2> 
       <section class="table-responsive" id="timetable">
         <table class="table table-bordered text-center">
           <thead>
@@ -193,6 +193,16 @@ import Loader from "../components/Loader";
       color: var(--accent);
       font-weight: 500;
       font-size: 18px;
+    }
+    .download {
+      text-decoration: none;
+      background: #171d26;
+      font-size: 14px;
+      color: var(--accent) !important;
+      font-weight: 600;
+      border: 0px none;
+      border-radius: 100px;
+      padding: 4px 12px;
     }
 
     .nav-buttons {
@@ -523,7 +533,6 @@ import { getCookie } from "../../utils/cookies";
 
   const home = document.querySelector(".h-button[href='#timetable']");
   home?.addEventListener("click", () => {
-    // e.preventDefault()
     setTimeout(() => window.scroll(0, 0), 20);
   });
 </script>
