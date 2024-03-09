@@ -14,6 +14,7 @@
   text-align: left;
   padding: 4px;
   border: 1px solid;
+  position: relative;
 }
 
 .tr {
@@ -40,7 +41,21 @@
   width: 10%;
 }
 
+.timeSlot {
+  display: none;
+}
+
 @media only screen and (max-width: 690px) {
+  .timeSlot {
+    display: initial;
+    font-size: 12px;
+    opacity: 0.6;
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    width: max-content;
+    user-select: none;
+  }
   .body {
     width: -webkit-fill-available;
   }

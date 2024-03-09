@@ -72,7 +72,7 @@ const TimeTableComponent = () => {
     fetch("https://academai-s-3.azurewebsites.net//course-user", {
       method: "POST",
       headers: {
-        "x-access-token": getCookie('token') as string,
+        "x-access-token": getCookie("token") as string,
         Host: "academai-s-3.azurewebsites.net",
         Origin: "https://a.srmcheck.me",
         Referer: "https://a.srmcheck.me/",
@@ -99,7 +99,7 @@ const TimeTableComponent = () => {
 
   useEffect(() => {
     if (JSON.parse($data)?.message == "Token is invalid !!") {
-      clearCookies()
+      clearCookies();
       dataJSON.set("{}");
       window.location.href = "/login";
     }
@@ -107,7 +107,7 @@ const TimeTableComponent = () => {
 
   useEffect(() => {
     if (data?.message == "Token is invalid !!") {
-      clearCookies()
+      clearCookies();
       window.location.href = "/login";
     } else if (data["time-table"]) {
       setTimeTable(data["time-table"][Number(day) - 1]);
@@ -153,6 +153,9 @@ const TimeTableComponent = () => {
                   }
                 >
                   {String(element).split("(")[0]}
+                  <span className={styles.timeSlot}>
+                    {startingTimesSlot[index]} - {endingTimesSlot[index]}
+                  </span>
                 </td>
               ) : (
                 <td key={index} />
