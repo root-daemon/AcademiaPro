@@ -3,6 +3,7 @@ import LoginButton from "./Login/LoginButton";
 import LoginInput from "./Login/LoginInput";
 
 import styles from "../components/styles/Login.module.css";
+import { setCookie } from "../../utils/cookies";
 
 export default function Login() {
   const [uid, setUid] = useState("");
@@ -30,7 +31,7 @@ export default function Login() {
       .then((res) => {
         if (res.token) {
           setError(2);
-          localStorage.setItem("access", res.token);
+          setCookie('token', res.token);
 
           window.location.href = "/academia";
         } else if (!res.token) {

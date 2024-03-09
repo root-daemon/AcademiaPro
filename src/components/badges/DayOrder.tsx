@@ -8,6 +8,7 @@ import { cleanStores } from "nanostores";
 
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { getCookie } from "../../../utils/cookies";
 
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
@@ -20,7 +21,7 @@ export default function DayOrder() {
         Origin: "https://a.srmcheck.me",
         Referer: "https://a.srmcheck.me/",
         "content-type": "application/json",
-        "x-access-token": localStorage.getItem("access") as string,
+        "x-access-token": getCookie('token') as string,
       },
     })
       .then((r) => r.text())

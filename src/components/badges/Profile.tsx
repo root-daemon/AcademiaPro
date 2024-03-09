@@ -6,6 +6,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 import styles from "../styles/Profile.module.css";
 import { useEffect, useState } from "react";
+import { clearCookies } from "../../../utils/cookies";
 
 export default function Profile() {
   const $data = useStore(dataJSON);
@@ -38,7 +39,7 @@ export default function Profile() {
             className={styles.logout}
             title="Log out"
             onClick={() => {
-              localStorage.clear();
+              clearCookies();
               window.location.href = "/";
             }}
           >

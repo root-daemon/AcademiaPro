@@ -10,6 +10,7 @@ import Hour from "../components/badges/Hour";
 import Profile from "../components/badges/Profile";
 
 import Loader from "../components/Loader";
+
 ---
 
 <Layout title="Academia">
@@ -451,10 +452,13 @@ import Loader from "../components/Loader";
   </style>
 </Layout>
 <script>
+import { getCookie } from "../../utils/cookies";
+
   document.addEventListener(
+
     "astro:page-load",
     async function () {
-      if (!localStorage.getItem("access")) window.location.href = "/login";
+      if (!getCookie('token')) window.location.href = "/login";
 
       const sections = document.querySelectorAll("section");
       const menu_links = document.querySelectorAll(".h-button");

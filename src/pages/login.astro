@@ -8,7 +8,9 @@ import LoginPage from "../components/Login.tsx";
 </Layout>
 
 <script>
+  import { getCookie } from "../../utils/cookies";
+
   document.addEventListener("astro:page-load", () => {
-    if (localStorage.getItem("access")) window.location.href = "/academia";
+    if (getCookie("token")) window.location.href = "/academia";
   });
 </script>

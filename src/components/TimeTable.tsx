@@ -6,6 +6,7 @@ import { dayOrder } from "../stores/DayOrder";
 import { dataJSON } from "../stores/DataStore";
 
 import styles from "./styles/Timetable.module.css";
+import { clearCookies, getCookie } from "../../utils/cookies";
 
 const startingTimesSlot = [
   "08:00",
@@ -42,7 +43,7 @@ const TimeTableComponent = () => {
   const $data = useStore(dataJSON);
 
   useEffect(() => {
-    const local = localStorage.getItem("do");
+    const local = sessionStorage.getItem("do");
     if (local) {
       setDay(local);
     }
@@ -56,12 +57,12 @@ const TimeTableComponent = () => {
 
     if (
       JSON.parse($data)["time-table"] ||
-      (localStorage.getItem("data") &&
-        JSON.stringify(localStorage.getItem("data")))
+      (sessionStorage.getItem("data") &&
+        JSON.stringify(sessionStorage.getItem("data")))
     ) {
       const d = JSON.parse($data)["time-table"]
         ? $data
-        : localStorage.getItem("data");
+        : sessionStorage.getItem("data");
 
       if (d) {
         setData(JSON.parse(d));
@@ -71,7 +72,7 @@ const TimeTableComponent = () => {
     fetch("https://academai-s-3.azurewebsites.net//course-user", {
       method: "POST",
       headers: {
-        "x-access-token": localStorage.getItem("access") as string,
+        "x-access-token": getCookie('token') as string,
         Host: "academai-s-3.azurewebsites.net",
         Origin: "https://a.srmcheck.me",
         Referer: "https://a.srmcheck.me/",
@@ -80,11 +81,11 @@ const TimeTableComponent = () => {
     })
       .then((r) => r.text())
       .then((res) => {
-        if (JSON.parse(res)?.message) return localStorage.clear();
+        if (JSON.parse(res)?.message) return clearCookies();
         dataJSON.set(res);
         if (data !== JSON.parse(res)) {
           setData(JSON.parse(res));
-          localStorage.setItem("data", res);
+          sessionStorage.setItem("data", res);
         }
       })
       .catch(() => {});
@@ -98,7 +99,7 @@ const TimeTableComponent = () => {
 
   useEffect(() => {
     if (JSON.parse($data)?.message == "Token is invalid !!") {
-      localStorage.removeItem("access");
+      clearCookies()
       dataJSON.set("{}");
       window.location.href = "/login";
     }
@@ -106,7 +107,7 @@ const TimeTableComponent = () => {
 
   useEffect(() => {
     if (data?.message == "Token is invalid !!") {
-      localStorage.removeItem("access");
+      clearCookies()
       window.location.href = "/login";
     } else if (data["time-table"]) {
       setTimeTable(data["time-table"][Number(day) - 1]);
