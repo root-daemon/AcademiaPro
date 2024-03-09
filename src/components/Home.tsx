@@ -48,17 +48,14 @@ export default function Home() {
             <p>
               Academia is a mess. we scraped it so, we know it. lol. And we got
               SRM Check but its bloated with useless crap and ads. So here we
-              are with our take
+              are with our take. We aren't responsible for the slow loading times, blame the
+              SRM servers, we tried our best.
             </p>
           </div>
           <blockquote className={styles.blockquotewarn}>
             <p>
               We scrape the information from SRM Academia, This website acts as
               a wrapper and does not store any information whatsoever!
-            </p>
-            <p>
-              Also we are'nt responsible for the slow loading times, blame the
-              srm servers, we tried our best
             </p>
           </blockquote>
         </div>
