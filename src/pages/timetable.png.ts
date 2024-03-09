@@ -22,17 +22,24 @@ export async function POST({ request }: { request: Request }) {
   });
 }
 
-export const GET = (window: any) => {
+export const GET = ({ url, request }: { url: URL, request: Request }) => {
   return new Promise((resolve) => {
-    const urlSearchParams = new URLSearchParams(window.url.search);
-    const params = Object.fromEntries(urlSearchParams.entries());
+    let key;
+    const token = getToken(request.headers.get("cookie") as string);
+
+    if (token) key = token;
+    else {
+      const urlSearchParams = new URLSearchParams(url.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      key = params.key;
+    }
 
     const Inter = fs.readFileSync(path.resolve("./fonts/Inter.ttf"));
 
     fetch("https://academai-s-3.azurewebsites.net//course-user", {
       method: "POST",
       headers: {
-        "x-access-token": decodeURIComponent(params.key as string),
+        "x-access-token": decodeURIComponent(key as string),
         Host: "academai-s-3.azurewebsites.net",
         Origin: "https://a.srmcheck.me",
         Referer: "https://a.srmcheck.me/",
@@ -59,3 +66,18 @@ export const GET = (window: any) => {
       });
   });
 };
+
+function getToken(cookie: string) {
+  var i,
+    x,
+    y,
+    ARRcookies = cookie.split(";");
+  for (i = 0; i < ARRcookies.length; i++) {
+    x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+    y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+    x = x.replace(/^\s+|\s+$/g, "");
+    if (x == "token") {
+      return unescape(y);
+    }
+  }
+}
