@@ -82,14 +82,14 @@ export default function Hour() {
           <span className={styles.badge}>{hour} hours</span>
         )
       ) : (
-        <Skeleton
+        !day?.day_order.includes("No") ? <Skeleton
           style={{
             width: "100px",
             height: "30px",
             borderRadius: "12px",
             opacity: 0.6,
           }}
-        />
+        /> : null
       )}
     </>
   );
