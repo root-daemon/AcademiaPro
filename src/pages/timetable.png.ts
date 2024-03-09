@@ -3,10 +3,10 @@ import path from "path";
 import { ImageResponse } from "@vercel/og";
 import Timetabler from "../components/Generator/TimeTableGenerator";
 
+const Inter = fs.readFileSync(path.resolve("./src/fonts/Inter.ttf"));
+
 export async function POST({ request }: { request: Request }) {
   const body = await request.json();
-
-  const Inter = fs.readFileSync(path.resolve("./fonts/Inter.ttf"));
 
   return new ImageResponse(JSON.parse(JSON.stringify(Timetabler({ body }))), {
     width: 2400,
@@ -41,8 +41,6 @@ export const GET = async ({ request }: { request: Request }) => {
         )
       );
     else {
-      const Inter = fs.readFileSync(path.resolve("./fonts/Inter.ttf"));
-
       fetch("https://academai-s-3.azurewebsites.net//course-user", {
         method: "POST",
         headers: {
