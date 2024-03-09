@@ -7,7 +7,7 @@ export function setCookie(
   exdate.setDate(exdate.getDate() + (exdays || 2 * 60 * 60 * 1000));
   var c_value =
     escape(value) + (exdays == null ? "" : "; expires=" + exdate.toUTCString());
-  document.cookie = c_name + "=" + c_value;
+  document.cookie = c_name + "=" + c_value + ";secure";
 
   sessionStorage.setItem(c_name, value);
 }
