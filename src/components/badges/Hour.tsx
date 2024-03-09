@@ -48,6 +48,8 @@ export default function Hour() {
 
     setTimeout(() => {
       if (JSON.parse($data)["time-table"] && JSON.parse($dayOrder).day_order) {
+        if(JSON.parse($dayOrder).day_order.includes("No")) return null;
+        
         const timetable =
           JSON.parse($data)["time-table"][
             Number(JSON.parse($dayOrder).day_order[0]) - 1
