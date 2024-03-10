@@ -6,13 +6,15 @@ University data, beautifully presented at your fingertips.
 ## Why Academia ?
 
 - Mobile-First approach
-- Faster and Elegant
+- Fast, Zippy and RAM Friendly
 - Open source
-- Better User-Experience
-- Not clumsy
-- Ad-free
+- Time table generator
+- Safe, Secure yet transparent
+- No bloat
 
 ### Idea behind
 
-> Academia is a mess. we scraped it so, we know it. lol. And we got SRM Check but its bloated with useless crap and ads. So here we are with our take
+> Academia is a mess. we scraped it so, we know it. lol. And we got SRM Check but its bloated with useless crap and ads. So here we are with our take. We aren't responsible for the slow loading times, blame the SRM servers, we tried our best.
 
+> [!WARNING]
+> Hi

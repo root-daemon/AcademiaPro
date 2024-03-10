@@ -36,11 +36,11 @@ export default function Home() {
             </h3>
             <ul>
               <li>Mobile-First approach</li>
-              <li>Faster and Elegant</li>
+              <li>Fast, Zippy and RAM Friendly</li>
               <li>Open source</li>
-              <li>Better User-Experience</li>
-              <li>Not clumsy</li>
-              <li>Ad-free</li>
+              <li>Time table generator</li>
+              <li>Safe, Secure yet transparent</li>
+              <li>No bloat</li>
             </ul>
           </div>
           <div>
