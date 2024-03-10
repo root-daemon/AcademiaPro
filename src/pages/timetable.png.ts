@@ -3,7 +3,9 @@ import path from "path";
 import { ImageResponse } from "@vercel/og";
 import Timetabler from "../components/Generator/TimeTableGenerator";
 
-const Inter = fs.readFileSync(path.resolve("./src/fonts/Inter.ttf"));
+// const Inter = fs.readFileSync(path.resolve("./src/fonts/Inter.ttf"));
+  const fontFilePath = `${process.cwd()}/src/fonts/Inter.ttf`;
+  const Inter = fs.readFileSync(fontFilePath);
 
 export async function POST({ request }: { request: Request }) {
   const body = await request.json();
