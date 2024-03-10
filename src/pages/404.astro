@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ErrorPage from "../components/404";
+---
+
+<Layout title="Got lost?">
+  <ErrorPage client:only="react" />
+</Layout>
