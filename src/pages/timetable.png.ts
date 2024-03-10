@@ -5,8 +5,9 @@ import Timetabler from "../components/Generator/TimeTableGenerator";
 
 // const Inter = fs.readFileSync(path.resolve("./src/fonts/Inter.ttf"));
   const fontFilePath = `${process.cwd()}/src/fonts/Inter.ttf`;
-  const Inter = fs.readFileSync(fontFilePath);
-
+  // const Inter = fs.readFileSync(fontFilePath);
+  const req = await fetch('https://fonts.cdnfonts.com/s/19795/Inter-Regular.woff')
+  const Inter = await req.arrayBuffer()
 export async function POST({ request }: { request: Request }) {
   const body = await request.json();
 
@@ -16,7 +17,7 @@ export async function POST({ request }: { request: Request }) {
     fonts: [
       {
         name: "Inter",
-        data: Inter.buffer,
+        data: Inter,
         style: "normal",
       },
     ],
@@ -66,7 +67,7 @@ export const GET = async ({ request }: { request: Request }) => {
                 fonts: [
                   {
                     name: "Inter",
-                    data: Inter.buffer,
+                    data: Inter,
                     style: "normal",
                   },
                 ],

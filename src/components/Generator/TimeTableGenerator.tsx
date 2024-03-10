@@ -126,6 +126,7 @@ export default function TimetableGen({ body }: { body: any }) {
                       display: "flex",
                       width: "10%",
                     }}
+                    key={j}
                   >
                     <td style={constructStyles(i, j, elem[0])}>
                       {elem[0].split("(")[0]}
