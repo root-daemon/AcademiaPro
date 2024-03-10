@@ -1,12 +1,13 @@
 const styled = {
   color: "#0a0d12",
-  fontWeight: "700",
-  border: "0px",
+  fontWeight: 600,
+  border: "0.3px solid #12171e",
   height: "40px",
   textAlign: "left",
   fontSize: "6px",
-  padding: "2px 4px",
+  padding: "4px",
   width: "100%",
+  fontFamily: 'Inter !important'
 };
 const startingTimesSlot = [
   "08:00",
@@ -61,6 +62,7 @@ export default function TimetableGen({ body }: { body: any }) {
   return (
     <div
       style={{
+        fontFamily: 'Inter',
         background: '#0a0d12',
         display: "flex",
         alignItems: "center",
@@ -73,6 +75,7 @@ export default function TimetableGen({ body }: { body: any }) {
       <div
         style={{
           margin: 0,
+          fontFamily: 'Inter',
           width: "610px",
           display: "flex",
           flexDirection: "column",
@@ -85,26 +88,27 @@ export default function TimetableGen({ body }: { body: any }) {
       >
         <div
           style={{
-            height: 30,
+            height: 20,
             color: "white",
             fontWeight: 600,
             display: "flex",
           }}
         >
-          {ten.map((e, i) => (
+          {ten.map((_e, i) => (
             <div
-              key={i + 1}
+              key={`timeslot-${i}`}
               style={{
-                padding: "0.2rem 0.5rem",
+                padding: "0.1rem 0.5rem",
+                fontFamily: '"Inter-Bold"',
                 width: "10%",
-                fontSize: 14,
+                fontSize: 6,
                 textAlign: "center",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
               }}
             >
-              {i + 1}
+              {timeConvert(startingTimesSlot[i])} - {timeConvert(endingTimesSlot[i])}
             </div>
           ))}
         </div>
@@ -126,14 +130,14 @@ export default function TimetableGen({ body }: { body: any }) {
                       display: "flex",
                       width: "10%",
                     }}
-                    key={j}
+                    key={`table-${i}-${j}`}
                   >
                     <td style={constructStyles(i, j, elem[0])}>
                       {elem[0].split("(")[0]}
                     </td>
                   </div>
                 ) : (
-                  <div style={{ width: "10%" }} />
+                  <div style={{ width: "10%", border: "0.3px solid #12171e", opacity: 0.5 }} />
                 )
               )}
             </div>
@@ -156,4 +160,14 @@ function constructStyles(i: number, j: number, name: string) {
   else if (i == 4 && j == 9) obj = { borderBottomRightRadius: "6px", ...obj };
 
   return obj;
+}
+
+function timeConvert(time: string) {
+  let convertedTime: any  = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+
+  if (convertedTime.length > 1) {
+    convertedTime = convertedTime.slice(1);
+    convertedTime[0] = +convertedTime[0] % 12 || 12;
+  }
+  return convertedTime.join('');
 }

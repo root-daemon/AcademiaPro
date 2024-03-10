@@ -1,13 +1,18 @@
-import fs from "fs";
-import path from "path";
 import { ImageResponse } from "@vercel/og";
 import Timetabler from "../components/Generator/TimeTableGenerator";
 
-// const Inter = fs.readFileSync(path.resolve("./src/fonts/Inter.ttf"));
-  const fontFilePath = `${process.cwd()}/src/fonts/Inter.ttf`;
-  // const Inter = fs.readFileSync(fontFilePath);
-  const req = await fetch('https://fonts.cdnfonts.com/s/19795/Inter-Regular.woff')
-  const Inter = await req.arrayBuffer()
+const req = await fetch(
+  "https://fonts.cdnfonts.com/s/19795/Inter-SemiBold.woff"
+);
+
+const req2 = await fetch(
+  "https://fonts.cdnfonts.com/s/19795/Inter-Bold.woff"
+);
+
+const Inter = await req.arrayBuffer();
+const InterBold = await req2.arrayBuffer();
+
+
 export async function POST({ request }: { request: Request }) {
   const body = await request.json();
 
@@ -18,6 +23,11 @@ export async function POST({ request }: { request: Request }) {
       {
         name: "Inter",
         data: Inter,
+        style: "normal",
+      },
+      {
+        name: "Inter-Bold",
+        data: InterBold,
         style: "normal",
       },
     ],

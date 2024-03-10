@@ -20,14 +20,14 @@ export default function LoginInput({
           error === 1
             ? {
                 border: "1px solid var(--red)",
-                background: "#D133330e",
+                background: "#D133330e !important",
                 borderBottomLeftRadius: 4,
                 borderBottomRightRadius: 4,
               }
             : error === 2
             ? {
                 border: "1px solid var(--practical)",
-                background: "#45d1330e",
+                background: "#45d1330e !important",
                 borderBottomLeftRadius: 4,
                 borderBottomRightRadius: 4,
               }
@@ -50,14 +50,14 @@ export default function LoginInput({
           error === 1
             ? {
                 border: "1px solid var(--red)",
-                background: "#D133330e",
+                background: "#D133330e !important",
                 borderTopLeftRadius: 4,
                 borderTopRightRadius: 4,
               }
             : error === 2
             ? {
                 border: "1px solid var(--practical)",
-                background: "#45d1330e",
+                background: "#45d1330e !important",
                 borderTopLeftRadius: 4,
                 borderTopRightRadius: 4,
               }
