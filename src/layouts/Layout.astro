@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import { pwaInfo } from 'virtual:pwa-info';
 
 interface Props {
   title: string;
@@ -9,6 +10,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 const { title } = Astro.props;
 
 import { SEO } from "astro-seo";
+
 ---
 
 <!doctype html>
@@ -16,13 +18,19 @@ import { SEO } from "astro-seo";
   <head>
     <ViewTransitions />
 
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicons/192.png">
+    <link rel="mask-icon" href="/favicon.svg" color="#0a0d12">
+    <meta name="msapplication-TileColor" content="#D4D4D4">
+    <meta name="theme-color" content="#D4D4D4">
+    
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content="University data, beautifully presented at your fingertips" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-		<script is:inline src="/registerSW.js"></script>
+		<script is:inline src="/src/pwa.ts"></script>
+
 		<link rel="manifest" href="/manifest.webmanifest" />
 
     <SEO
@@ -67,6 +75,7 @@ import { SEO } from "astro-seo";
       rel="stylesheet"
     />
     <title>{title}</title>
+    { pwaInfo && <Fragment set:html={pwaInfo.webManifest.linkTag} /> }
   </head>
   <body>
     <slot />
