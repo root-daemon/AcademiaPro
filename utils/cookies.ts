@@ -9,11 +9,11 @@ export function setCookie(
     escape(value) + (exdays == null ? "" : "; expires=" + exdate.toUTCString());
   document.cookie = c_name + "=" + c_value + ";secure";
 
-  sessionStorage.setItem(c_name, value);
+  localStorage.setItem(c_name, value);
 }
 
 export function getCookie(c_name: string) {
-  if (sessionStorage.getItem(c_name)) return sessionStorage.getItem(c_name);
+  if (localStorage.getItem(c_name)) return localStorage.getItem(c_name);
   else {
     var i,
       x,
@@ -38,6 +38,6 @@ export function clearCookies() {
     const eqPos = cookie.indexOf("=");
     const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }
