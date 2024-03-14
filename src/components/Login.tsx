@@ -15,7 +15,6 @@ export default function Login() {
     setError(-1);
     fetch("https://academai-s-3.azurewebsites.net//login", {
       method: "POST",
-      cache: "no-cache",
       headers: {
         Connection: "keep-alive",
         "Accept-Encoding": "gzip, deflate, br, zstd",
