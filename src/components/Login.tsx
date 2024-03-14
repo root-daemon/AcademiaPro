@@ -15,12 +15,15 @@ export default function Login() {
     setError(-1);
     fetch("https://academai-s-3.azurewebsites.net//login", {
       method: "POST",
-      cache: "force-cache",
+      cache: "no-cache",
       headers: {
+        Connection: "keep-alive",
+        "Accept-Encoding": "gzip, deflate, br, zstd",
         Host: "academai-s-3.azurewebsites.net",
         Origin: "https://a.srmcheck.me",
         Referer: "https://a.srmcheck.me/",
         "content-type": "application/json",
+        "Cache-Control": "public, max-age 172800, must-revalidate, immutable",
       },
       body: JSON.stringify({
         username: uid,
@@ -31,7 +34,7 @@ export default function Login() {
       .then((res) => {
         if (res.token) {
           setError(2);
-          setCookie('token', res.token);
+          setCookie("token", res.token);
 
           window.location.href = "/academia";
         } else if (!res.token) {

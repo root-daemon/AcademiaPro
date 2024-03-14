@@ -7,20 +7,21 @@ import styles from '../styles/Badge.module.css';
 
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import { getCookie } from '../../../utils/cookies';
 
 export default function DayOrder() {
   const [day, setDay] = useState<{ day_order: string } | null>(null);
 
   useEffect(() => {
-    fetch('https://academai-s-3.azurewebsites.net//do', {
+    fetch('https://academai-s-3.azurewebsites.net/do', {
       method: 'POST',
       headers: {
         Host: 'academai-s-3.azurewebsites.net',
         Origin: 'https://a.srmcheck.me',
+        Connection: "keep-alive",
+        "Accept-Encoding": "gzip, deflate, br, zstd",
         Referer: 'https://a.srmcheck.me/',
         'content-type': 'application/json',
-        'x-access-token': getCookie('token') as string,
+        "Cache-Control": "public, max-age 21600, must-revalidate"
       },
     })
       .then((r) => r.text())

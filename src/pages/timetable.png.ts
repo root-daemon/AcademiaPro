@@ -5,13 +5,10 @@ const req = await fetch(
   "https://fonts.cdnfonts.com/s/19795/Inter-SemiBold.woff"
 );
 
-const req2 = await fetch(
-  "https://fonts.cdnfonts.com/s/19795/Inter-Bold.woff"
-);
+const req2 = await fetch("https://fonts.cdnfonts.com/s/19795/Inter-Bold.woff");
 
 const Inter = await req.arrayBuffer();
 const InterBold = await req2.arrayBuffer();
-
 
 export async function POST({ request }: { request: Request }) {
   const body = await request.json();
@@ -57,11 +54,14 @@ export const GET = async ({ request }: { request: Request }) => {
       fetch("https://academai-s-3.azurewebsites.net//course-user", {
         method: "POST",
         headers: {
+          Connection: "keep-alive",
+          "Accept-Encoding": "gzip, deflate, br, zstd",
           "x-access-token": decodeURIComponent(key as string),
           Host: "academai-s-3.azurewebsites.net",
           Origin: "https://a.srmcheck.me",
           Referer: "https://a.srmcheck.me/",
-          "Cache-Control": "max-age=604800 must-revalidate",
+          "Cache-Control":
+            "private, max-age 21600, stale-while-revalidate 7200, must-revalidate",
         },
       })
         .then((r) => r.text())
