@@ -19,23 +19,22 @@ const AttendanceTable = () => {
     if (localData) dataJSON.set(JSON.stringify(localData));
     if (localDay) dayOrder.set(JSON.stringify(localDay));
 
-    fetch("https://academai-s-3.azurewebsites.net//course-user", {
+    fetch("/api/academia", {
       method: "POST",
       headers: {
         "x-access-token": getCookie("token") as string,
-        Host: "academai-s-3.azurewebsites.net",
-        Connection: "keep-alive",
-        "Accept-Encoding": "gzip, deflate, br, zstd",
-        Origin: "https://a.srmcheck.me",
-        Referer: "https://a.srmcheck.me/",
-        
+
         "Cache-Control":
           "private, max-age 21600, stale-while-revalidate 7200, must-revalidate",
       },
+      body: JSON.stringify({ token: getCookie("token") }),
     })
       .then((r) => r.text())
       .then((res) => {
-        if (JSON.parse(res)?.message) return clearCookies();
+        if (JSON.parse(res)?.error) {
+           clearCookies()
+            window.location.href = '/'
+          };
         dataJSON.set(res);
         localStorage.setItem("data", res);
       })

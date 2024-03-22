@@ -13,33 +13,22 @@ export default function Login() {
 
   function push() {
     setError(-1);
-    fetch("https://academai-s-3.azurewebsites.net//login", {
-      method: "POST",
-      headers: {
-        Connection: "keep-alive",
-        "Accept-Encoding": "gzip, deflate, br, zstd",
-        Host: "academai-s-3.azurewebsites.net",
-        Origin: "https://a.srmcheck.me",
-        Referer: "https://a.srmcheck.me/",
-        "content-type": "application/json",
-        "Cache-Control": "public, max-age 172800, must-revalidate, immutable",
-      },
-      body: JSON.stringify({
-        username: uid,
-        password: pass,
-      }),
-    })
-      .then((d) => d.json())
-      .then((res) => {
-        if (res.token) {
-          setError(2);
-          setCookie("token", res.token);
+    
+    fetch('/api/login', {
+      method: 'POST',
+      body: JSON.stringify({ username: uid, password: pass })
+    }).then((d) => d.json())
+    .then((res) => {
+      if (res.token) {
+        setError(2);
+        setCookie("token", res.token);
 
-          window.location.href = "/academia";
-        } else if (!res.token) {
-          setError(1);
-        }
-      });
+        window.location.href = "/academia";
+      } else if (res.error) {
+        setError(1);
+      }
+    });
+    
   }
 
   return (

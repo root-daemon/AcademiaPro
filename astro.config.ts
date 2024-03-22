@@ -18,26 +18,26 @@ export default defineConfig({
     metaTags(),
     sitemap(),
     compress(),
-    AstroPWA({
-      includeAssets: ['favicon.svg'],
-      registerType: "autoUpdate",
-      manifest: manifest,
-      workbox: {
-        navigateFallback: "/404",
-        globDirectory: "dist",
-        globPatterns: [
-          "**/*.{ts,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,tsx,js,astro}",
-        ],
+    // AstroPWA({
+    //   includeAssets: ['favicon.svg'],
+    //   registerType: "autoUpdate",
+    //   manifest: manifest,
+    //   workbox: {
+    //     navigateFallback: "/404",
+    //     globDirectory: "dist",
+    //     globPatterns: [
+    //       "**/*.{ts,css,svg,png,jpg,jpeg,gif,webp,woff,woff2,ttf,eot,ico,tsx,js,astro}",
+    //     ],
         
-      },
-      devOptions: {
-        enabled: true,
-        navigateFallbackAllowlist: [/^\//],
-      },
-      experimental: {
-        directoryAndTrailingSlashHandler: true,
-      },
-    }),
+    //   },
+    //   devOptions: {
+    //     enabled: true,
+    //     navigateFallbackAllowlist: [/^\//],
+    //   },
+    //   experimental: {
+    //     directoryAndTrailingSlashHandler: true,
+    //   },
+    // }),
   ],
   adapter: vercel({
     webAnalytics: {
