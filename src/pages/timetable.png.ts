@@ -1,6 +1,5 @@
 import { ImageResponse } from "@vercel/og";
 import Timetabler from "../components/Generator/TimeTableGenerator";
-import type { APIContext } from "astro";
 
 const req = await fetch(
   "https://fonts.cdnfonts.com/s/19795/Inter-SemiBold.woff"
@@ -32,7 +31,7 @@ export async function POST({ request }: { request: Request }) {
   });
 }
 
-export const GET = async ({ request, params }: APIContext) => {
+export const GET = async ({ request }: { request: Request }) => {
   return new Promise((resolve) => {
     const key = getToken(request.headers.get("cookie") as string);
 
@@ -52,12 +51,15 @@ export const GET = async ({ request, params }: APIContext) => {
         )
       );
     else {
-      fetch("https://academia-pro.vercel.app/api/academia", {
+      fetch("https://academai-s-3.azurewebsites.net//course-user", {
         method: "POST",
         headers: {
           Connection: "keep-alive",
+          "Accept-Encoding": "gzip, deflate, br, zstd",
           "x-access-token": decodeURIComponent(key as string),
-          body: JSON.stringify({ token: decodeURIComponent(key as string) }),
+          Host: "academai-s-3.azurewebsites.net",
+          Origin: "https://a.srmcheck.me",
+          Referer: "https://a.srmcheck.me/",
           "Cache-Control":
             "private, max-age 21600, stale-while-revalidate 7200, must-revalidate",
         },
@@ -65,6 +67,7 @@ export const GET = async ({ request, params }: APIContext) => {
         .then((r) => r.text())
         .then((res) => {
           const body = JSON.parse(res);
+
           resolve(
             new ImageResponse(
               JSON.parse(JSON.stringify(Timetabler({ body }))),
