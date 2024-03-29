@@ -75,10 +75,9 @@ export const GET = async ({ request }: { request: Request }) => {
                 width: 2400,
                 height: 920,
                 headers: {
-                  Connection: "keep-alive",
-                  "Cache-Control": "no-cache",
+                  "Cache-Control":
+                    "private, max-age 21600, stale-while-revalidate 7200, must-revalidate",
                   "Accept-Encoding": "gzip, deflate, br, zstd",
-                  "x-access-token": decodeURIComponent(key as string),
                 },
                 fonts: [
                   {
