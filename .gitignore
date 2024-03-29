@@ -1,6 +1,8 @@
 # build output
 dist/
 
+.vercel/
+.vite/
 # generated types
 .astro/
 dev-dist/
