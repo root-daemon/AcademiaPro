@@ -1,13 +1,13 @@
-import { useState } from "react";
-import LoginButton from "./Login/LoginButton";
-import LoginInput from "./Login/LoginInput";
+import { useState } from 'react';
+import LoginButton from './Login/LoginButton';
+import LoginInput from './Login/LoginInput';
 
-import styles from "../components/styles/Login.module.css";
-import { setCookie } from "../../utils/cookies";
+import { setCookie } from '../../utils/cookies';
+import styles from '../components/styles/Login.module.css';
 
 export default function Login() {
-  const [uid, setUid] = useState("");
-  const [pass, setPass] = useState("");
+  const [uid, setUid] = useState('');
+  const [pass, setPass] = useState('');
 
   const [error, setError] = useState(0);
 
@@ -34,10 +34,9 @@ export default function Login() {
       .then((res) => {
         if (res.token) {
           setError(2);
-          setCookie("token", res.token);
-
-          window.location.href = "/academia";
-        } else if (!res.token) {
+          setCookie('token', res.token);
+          window.location.href = '/academia';
+        } else if (res.message) {
           setError(1);
         }
       });
@@ -68,7 +67,7 @@ export default function Login() {
             </div>
             <button
               onClick={() =>
-                window.location.replace("https://better-lab.vercel.app")
+                window.location.replace('https://better-lab.vercel.app')
               }
             >
               Better-Lab
@@ -76,7 +75,7 @@ export default function Login() {
           </div>
 
           <form className={styles.inputs}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
               <LoginInput
                 onChange={(e) => {
                   setError(0);
@@ -97,12 +96,12 @@ export default function Login() {
               />
             </div>
 
-            <div style={{ display: "flex", gap: 12 }}>
+            <div style={{ display: 'flex', gap: 12 }}>
               <LoginButton error={error} onClick={push} />
             </div>
           </form>
           <p className={styles.credits}>
-            Made by <a href="https://marban.is-a.dev">Marban</a> and{" "}
+            Made by <a href="https://marban.is-a.dev">Marban</a> and{' '}
             <a href="https://www.linkedin.com/in/srivishal-sivasubramanian-1a09b9240/">
               root-daemon
             </a>
