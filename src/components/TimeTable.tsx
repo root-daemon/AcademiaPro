@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 import { dataJSON } from '../stores/DataStore';
 import { dayOrder } from '../stores/DayOrder';
 
-import { clearCookies, getCookie } from '../../utils/cookies';
 import styles from './styles/Timetable.module.css';
 
 const startingTimesSlot = [
@@ -72,7 +71,7 @@ const TimeTableComponent = () => {
   }, [$dayOrder, $data]);
 
   function openGen() {
-    window.location.href = '/timetable.png';
+    window.location.href = `/timetable/${JSON.parse($data)['user']['section']}.png`;
   }
 
   return (

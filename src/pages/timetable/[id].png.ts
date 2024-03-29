@@ -1,5 +1,5 @@
 import { ImageResponse } from "@vercel/og";
-import Timetabler from "../components/Generator/TimeTableGenerator";
+import Timetabler from "../../components/Generator/TimeTableGenerator";
 
 const req = await fetch(
   "https://fonts.cdnfonts.com/s/19795/Inter-SemiBold.woff"
@@ -74,6 +74,12 @@ export const GET = async ({ request }: { request: Request }) => {
               {
                 width: 2400,
                 height: 920,
+                headers: {
+                  Connection: "keep-alive",
+                  "Cache-Control": "no-cache",
+                  "Accept-Encoding": "gzip, deflate, br, zstd",
+                  "x-access-token": decodeURIComponent(key as string),
+                },
                 fonts: [
                   {
                     name: "Inter",

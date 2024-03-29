@@ -4,13 +4,14 @@ import Layout from "../layouts/Layout.astro";
 import TimeTable from "../components/TimeTable";
 import AttendanceTable from "../components/Attendance";
 import Marks from "../components/Marks";
+import ViewButton from "../components/ViewButton";
+
 
 import DayOrder from "../components/badges/DayOrder";
 import Hour from "../components/badges/Hour";
 import Profile from "../components/badges/Profile";
 
 import Loader from "../components/Loader";
-
 ---
 
 <Layout title="Academia">
@@ -101,7 +102,12 @@ import Loader from "../components/Loader";
     </button>
 
     <div class="content">
-      <h2 style="margin-top: 0px; display: flex; align-items: center; gap: 12px;" class="subtitle">Timetable <a href="/timetable.png" class="download">View all</a></h2> 
+      <h2
+        style="margin-top: 0px; display: flex; align-items: center; gap: 12px;"
+        class="subtitle"
+      >
+        Timetable <ViewButton client:only />
+      </h2>
       <section class="table-responsive" id="timetable">
         <table class="table table-bordered text-center">
           <thead>
@@ -194,16 +200,7 @@ import Loader from "../components/Loader";
       font-weight: 500;
       font-size: 18px;
     }
-    .download {
-      text-decoration: none;
-      background: #171d26;
-      font-size: 14px;
-      color: var(--accent) !important;
-      font-weight: 600;
-      border: 0px none;
-      border-radius: 100px;
-      padding: 4px 12px;
-    }
+    
 
     .nav-buttons {
       display: -webkit-box;
@@ -389,7 +386,7 @@ import Loader from "../components/Loader";
         left: 0;
         height: 100vh;
         width: 98vw;
-        background: rgba(7,7,7,0.2);
+        background: rgba(7, 7, 7, 0.2);
       }
 
       .nav.viewable {
@@ -462,13 +459,12 @@ import Loader from "../components/Loader";
   </style>
 </Layout>
 <script>
-import { getCookie } from "../../utils/cookies";
+  import { getCookie } from "../../utils/cookies";
 
   document.addEventListener(
-
     "astro:page-load",
     async function () {
-      if (!getCookie('token')) window.location.href = "/login";
+      if (!getCookie("token")) window.location.href = "/login";
 
       const sections = document.querySelectorAll("section");
       const menu_links = document.querySelectorAll(".h-button");
@@ -528,7 +524,6 @@ import { getCookie } from "../../utils/cookies";
   navCloser?.addEventListener("click", () => {
     nav?.classList.remove("viewable");
     navCloser?.classList.remove("viewable");
-
   });
 
   const home = document.querySelector(".h-button[href='#timetable']");

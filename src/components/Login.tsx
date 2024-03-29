@@ -23,7 +23,7 @@ export default function Login() {
         Origin: "https://a.srmcheck.me",
         Referer: "https://a.srmcheck.me/",
         "content-type": "application/json",
-        "Cache-Control": "public, max-age 172800, must-revalidate, immutable",
+        "Cache-Control": "private, max-age 172800, must-revalidate, immutable",
       },
       body: JSON.stringify({
         username: uid,
